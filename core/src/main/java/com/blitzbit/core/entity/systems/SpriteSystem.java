@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,7 +20,7 @@ public class SpriteSystem extends SortedIteratingSystem {
     private final BitmapFont font;
 
     public SpriteSystem(GameWorld world, SpriteBatch batch) {
-        super(Family.all(SpriteComponent.class, PositionComponent.class, SizeComponent.class, ColorComponent.class).get(), new SpriteComparator());
+        super(Family.all(SpriteComponent.class, PositionComponent.class).get(), new SpriteComparator());
         this.world = world;
         this.batch = batch;
         font = new BitmapFont();
@@ -36,9 +37,9 @@ public class SpriteSystem extends SortedIteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         PositionComponent position = EntityComponentMappers.position.get(entity);
-        ColorComponent color = EntityComponentMappers.color.get(entity);
         SpriteComponent sprite = EntityComponentMappers.sprite.get(entity);
-        SizeComponent size = EntityComponentMappers.size.get(entity);
+        ColorComponent color = getColorComponent(entity);
+        SizeComponent size = getSizeComponent(entity);
 
         Texture texture = world.getAssetManager().getTexture(sprite.textureFilename);
 
@@ -51,6 +52,26 @@ public class SpriteSystem extends SortedIteratingSystem {
 
         font.draw(batch, String.format("x=%.2f,y=%.2f", x, y), x - originX, y - originY);
         batch.draw(texture, x - originX, y - originY, width, height);
+    }
+
+    private SizeComponent getSizeComponent(Entity entity) {
+        SizeComponent size = EntityComponentMappers.size.get(entity);
+
+        if (size != null) {
+            return size;
+        } else {
+            return new SizeComponent(32.0f, 32.0f);
+        }
+    }
+
+    private ColorComponent getColorComponent(Entity entity) {
+        ColorComponent color = EntityComponentMappers.color.get(entity);
+
+        if (color != null) {
+            return color;
+        } else {
+            return new ColorComponent(Color.WHITE);
+        }
     }
 
     private static class SpriteComparator implements Comparator<Entity> {
