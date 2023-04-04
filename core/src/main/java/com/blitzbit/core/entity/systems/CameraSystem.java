@@ -3,7 +3,6 @@ package com.blitzbit.core.entity.systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.core.entity.components.CameraFollowComponent;
 import com.blitzbit.core.entity.components.EntityComponentMappers;
 import com.blitzbit.core.entity.components.PositionComponent;
