@@ -15,6 +15,7 @@ public class GameAssetManager extends AssetManager {
     private void loadTextures() {
         loadTexture("player.png");
         loadTexture("minion.png");
+        loadTexture("flag.png");
     }
 
     private void loadTexture(String filename) {
