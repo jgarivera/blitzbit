@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.blitzbit.core.entity.Flag;
 import com.blitzbit.core.entity.Minion;
 import com.blitzbit.core.entity.Player;
 import com.blitzbit.core.entity.components.InputComponent;
@@ -44,6 +45,7 @@ public class GameWorld {
         spawnEntity(new Player(0, 0));
         spawnEntity(new Minion(100, 100));
         spawnEntity(new Minion(200, 50));
+        spawnEntity(new Flag(175, 175));
 
         setupEngine();
     }
