@@ -16,12 +16,14 @@ import com.blitzbit.core.entity.systems.PlayerInputSystem;
 import com.blitzbit.core.entity.systems.SpriteSystem;
 import com.blitzbit.core.graphics.GameAssetManager;
 import com.blitzbit.core.graphics.GameCamera;
+import com.blitzbit.core.graphics.GameOverlay;
 import com.blitzbit.core.input.InputActionManager;
 import com.blitzbit.core.physics.GamePhysics;
 
 public class GameWorld {
     private final SpriteBatch batch;
     private final GameCamera camera;
+    private final GameOverlay overlay;
     private final Engine engine;
 
     private final GameAssetManager assetManager;
@@ -36,7 +38,7 @@ public class GameWorld {
 
         batch = new SpriteBatch();
         camera = new GameCamera();
-
+        overlay = new GameOverlay();
         engine = new Engine();
 
         physics = new GamePhysics();
@@ -78,6 +80,7 @@ public class GameWorld {
 
         physics.update(delta);
         engine.update(delta);
+        overlay.render(delta);
     }
 
     public void resize(int width, int height) {
