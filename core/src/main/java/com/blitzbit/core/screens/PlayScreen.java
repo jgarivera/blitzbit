@@ -26,7 +26,6 @@ public class PlayScreen extends GameScreen {
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 1);
         world.render(delta);
-        Gdx.app.log("debug", "FPS: " + Gdx.graphics.getFramesPerSecond());
     }
 
     @Override
