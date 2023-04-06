@@ -3,6 +3,7 @@ package com.blitzbit.core.entity.systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.blitzbit.core.entity.components.EntityComponentMappers;
 import com.blitzbit.core.entity.components.PhysicsBodyComponent;
@@ -22,9 +23,11 @@ public class MovementSystem extends IteratingSystem {
         PhysicsBodyComponent physics = EntityComponentMappers.physics.get(entity);
 
         Body body = physics.body;
-        body.setLinearVelocity(velocity.x, velocity.y);
+        Vector2 bodyPosition = body.getPosition();
 
-        position.x = body.getPosition().x;
-        position.y = body.getPosition().y;
+        position.x = bodyPosition.x;
+        position.y = bodyPosition.y;
+
+        body.setLinearVelocity(velocity.x, velocity.y);
     }
 }
