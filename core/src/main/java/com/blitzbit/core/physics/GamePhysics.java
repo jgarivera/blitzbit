@@ -22,7 +22,7 @@ public class GamePhysics {
     }
 
     public void register(Engine engine) {
-        Family family = Family.all(PositionComponent.class, SizeComponent.class, PhysicsBodyComponent.class).get();
+        Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
         engine.addEntityListener(family, new PhysicsBodyListener(this));
     }
 
