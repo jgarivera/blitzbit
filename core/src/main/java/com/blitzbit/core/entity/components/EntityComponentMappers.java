@@ -11,7 +11,7 @@ public class EntityComponentMappers {
     public static final ComponentMapper<ColorComponent> color = getFor(ColorComponent.class);
     public static final ComponentMapper<CameraFollowComponent> cameraFollow = getFor(CameraFollowComponent.class);
 
-    public static final ComponentMapper<PhysicsComponent> physics = getFor(PhysicsComponent.class);
+    public static final ComponentMapper<PhysicsBodyComponent> physics = getFor(PhysicsBodyComponent.class);
 
     public static <T extends Component> ComponentMapper<T> getFor(Class<T> componentClass) {
         return ComponentMapper.getFor(componentClass);

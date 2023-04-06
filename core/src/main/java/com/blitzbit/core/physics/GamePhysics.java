@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.blitzbit.core.entity.components.PhysicsComponent;
+import com.blitzbit.core.entity.components.PhysicsBodyComponent;
 import com.blitzbit.core.entity.components.PositionComponent;
 import com.blitzbit.core.entity.components.SizeComponent;
 import com.blitzbit.core.entity.listeners.PhysicsBodyListener;
@@ -22,7 +22,7 @@ public class GamePhysics {
     }
 
     public void register(Engine engine) {
-        Family family = Family.all(PositionComponent.class, SizeComponent.class, PhysicsComponent.class).get();
+        Family family = Family.all(PositionComponent.class, SizeComponent.class, PhysicsBodyComponent.class).get();
         engine.addEntityListener(family, new PhysicsBodyListener(this));
     }
 

@@ -14,6 +14,6 @@ public class Player extends Entity {
         add(new SpriteComponent("player.png"));
         add(new ColorComponent(Color.GOLDENROD));
         add(new CameraFollowComponent(true));
-        add(new PhysicsComponent());
+        add(new PhysicsBodyComponent());
     }
 }

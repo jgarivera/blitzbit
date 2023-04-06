@@ -10,6 +10,6 @@ public class Flag extends Entity {
         add(new VelocityComponent());
         add(new SpriteComponent("flag.png", 1));
         add(new SizeComponent(48.0f, 48.0f));
-        add(new PhysicsComponent());
+        add(new PhysicsBodyComponent());
     }
 }
