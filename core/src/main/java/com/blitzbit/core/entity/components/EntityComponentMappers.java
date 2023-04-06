@@ -2,6 +2,8 @@ package com.blitzbit.core.entity.components;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
+import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.graphics.Color;
 
 public class EntityComponentMappers {
     public static final ComponentMapper<PositionComponent> position = getFor(PositionComponent.class);
@@ -15,5 +17,25 @@ public class EntityComponentMappers {
 
     public static <T extends Component> ComponentMapper<T> getFor(Class<T> componentClass) {
         return ComponentMapper.getFor(componentClass);
+    }
+
+    public static SizeComponent getSizeComponentOrDefault(Entity entity) {
+        SizeComponent size = EntityComponentMappers.size.get(entity);
+
+        if (size != null) {
+            return size;
+        } else {
+            return new SizeComponent(32.0f, 32.0f);
+        }
+    }
+
+    public static ColorComponent getColorComponentOrDefault(Entity entity) {
+        ColorComponent color = EntityComponentMappers.color.get(entity);
+
+        if (color != null) {
+            return color;
+        } else {
+            return new ColorComponent(Color.WHITE);
+        }
     }
 }
