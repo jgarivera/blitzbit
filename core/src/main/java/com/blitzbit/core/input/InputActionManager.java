@@ -8,29 +8,29 @@ import java.util.HashMap;
 
 public class InputActionManager extends InputAdapter {
 
-    private ArrayList<ActionListener> actionListeners;
-    private HashMap<Integer, ActionType> keyboardActions;
+    private final ArrayList<ActionListener> actionListeners;
+    private final HashMap<Integer, ActionType> keyboardActionTypes;
 
-    private HashMap<Integer, ActionType> mouseActions;
+    private final HashMap<Integer, ActionType> mouseActionTypes;
 
     public InputActionManager() {
         actionListeners = new ArrayList<>();
-        keyboardActions = new HashMap<>();
-        mouseActions = new HashMap<>();
+        keyboardActionTypes = new HashMap<>();
+        mouseActionTypes = new HashMap<>();
 
-        registerKeyboardActions();
-        registerMouseActions();
+        registerKeyboardActionTypes();
+        registerMouseActionTypes();
     }
 
-    private void registerKeyboardActions() {
-        keyboardActions.put(Input.Keys.W, ActionType.MOVE_UP);
-        keyboardActions.put(Input.Keys.S, ActionType.MOVE_DOWN);
-        keyboardActions.put(Input.Keys.A, ActionType.MOVE_LEFT);
-        keyboardActions.put(Input.Keys.D, ActionType.MOVE_RIGHT);
+    private void registerKeyboardActionTypes() {
+        keyboardActionTypes.put(Input.Keys.W, ActionType.MOVE_UP);
+        keyboardActionTypes.put(Input.Keys.S, ActionType.MOVE_DOWN);
+        keyboardActionTypes.put(Input.Keys.A, ActionType.MOVE_LEFT);
+        keyboardActionTypes.put(Input.Keys.D, ActionType.MOVE_RIGHT);
     }
 
-    private void registerMouseActions() {
-        mouseActions.put(Input.Buttons.LEFT, ActionType.SPAWN_MINION);
+    private void registerMouseActionTypes() {
+        mouseActionTypes.put(Input.Buttons.LEFT, ActionType.SPAWN_MINION);
     }
 
     /**
@@ -48,8 +48,8 @@ public class InputActionManager extends InputAdapter {
 
     @Override
     public boolean keyDown(int keycode) {
-        if (keyboardActions.containsKey(keycode)) {
-            return notifyListenersToEnter(keyboardActions.get(keycode));
+        if (keyboardActionTypes.containsKey(keycode)) {
+            return notifyListenersToEnter(keyboardActionTypes.get(keycode));
         } else {
             return false;
         }
@@ -57,8 +57,8 @@ public class InputActionManager extends InputAdapter {
 
     @Override
     public boolean keyUp(int keycode) {
-        if (keyboardActions.containsKey(keycode)) {
-            return notifyListenersToExit(keyboardActions.get(keycode));
+        if (keyboardActionTypes.containsKey(keycode)) {
+            return notifyListenersToExit(keyboardActionTypes.get(keycode));
         } else {
             return false;
         }
@@ -66,8 +66,8 @@ public class InputActionManager extends InputAdapter {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if (mouseActions.containsKey(button)) {
-            return notifyListenersToEnter(mouseActions.get(button));
+        if (mouseActionTypes.containsKey(button)) {
+            return notifyListenersToEnter(mouseActionTypes.get(button));
         } else {
             return false;
         }
@@ -75,18 +75,18 @@ public class InputActionManager extends InputAdapter {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        if (mouseActions.containsKey(button)) {
-            return notifyListenersToExit(mouseActions.get(button));
+        if (mouseActionTypes.containsKey(button)) {
+            return notifyListenersToExit(mouseActionTypes.get(button));
         } else {
             return false;
         }
     }
 
-    private boolean notifyListenersToEnter(ActionType action) {
+    private boolean notifyListenersToEnter(ActionType actionType) {
         boolean isProcessed = false;
 
         for (ActionListener listener : actionListeners) {
-            if (!isProcessed && listener.onActionEntered(action)) {
+            if (!isProcessed && listener.onActionEntered(actionType)) {
                 isProcessed = true;
             }
         }
@@ -94,11 +94,11 @@ public class InputActionManager extends InputAdapter {
         return isProcessed;
     }
 
-    private boolean notifyListenersToExit(ActionType action) {
+    private boolean notifyListenersToExit(ActionType actionType) {
         boolean isProcessed = false;
 
         for (ActionListener listener : actionListeners) {
-            if (!isProcessed && listener.onActionExited(action)) {
+            if (!isProcessed && listener.onActionExited(actionType)) {
                 isProcessed = true;
             }
         }
