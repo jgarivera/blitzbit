@@ -1,6 +1,6 @@
 package com.blitzbit.core.input;
 
-public enum InputAction {
+public enum ActionType {
     MOVE_UP,
     MOVE_DOWN,
     MOVE_LEFT,

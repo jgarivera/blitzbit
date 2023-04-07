@@ -9,9 +9,9 @@ import java.util.HashMap;
 public class InputActionManager extends InputAdapter {
 
     private ArrayList<ActionListener> actionListeners;
-    private HashMap<Integer, InputAction> keyboardActions;
+    private HashMap<Integer, ActionType> keyboardActions;
 
-    private HashMap<Integer, InputAction> mouseActions;
+    private HashMap<Integer, ActionType> mouseActions;
 
     public InputActionManager() {
         actionListeners = new ArrayList<>();
@@ -23,14 +23,14 @@ public class InputActionManager extends InputAdapter {
     }
 
     private void registerKeyboardActions() {
-        keyboardActions.put(Input.Keys.W, InputAction.MOVE_UP);
-        keyboardActions.put(Input.Keys.S, InputAction.MOVE_DOWN);
-        keyboardActions.put(Input.Keys.A, InputAction.MOVE_LEFT);
-        keyboardActions.put(Input.Keys.D, InputAction.MOVE_RIGHT);
+        keyboardActions.put(Input.Keys.W, ActionType.MOVE_UP);
+        keyboardActions.put(Input.Keys.S, ActionType.MOVE_DOWN);
+        keyboardActions.put(Input.Keys.A, ActionType.MOVE_LEFT);
+        keyboardActions.put(Input.Keys.D, ActionType.MOVE_RIGHT);
     }
 
     private void registerMouseActions() {
-        mouseActions.put(Input.Buttons.LEFT, InputAction.SPAWN_MINION);
+        mouseActions.put(Input.Buttons.LEFT, ActionType.SPAWN_MINION);
     }
 
     /**
@@ -82,7 +82,7 @@ public class InputActionManager extends InputAdapter {
         }
     }
 
-    private boolean notifyListenersToEnter(InputAction action) {
+    private boolean notifyListenersToEnter(ActionType action) {
         boolean isProcessed = false;
 
         for (ActionListener listener : actionListeners) {
@@ -94,7 +94,7 @@ public class InputActionManager extends InputAdapter {
         return isProcessed;
     }
 
-    private boolean notifyListenersToExit(InputAction action) {
+    private boolean notifyListenersToExit(ActionType action) {
         boolean isProcessed = false;
 
         for (ActionListener listener : actionListeners) {

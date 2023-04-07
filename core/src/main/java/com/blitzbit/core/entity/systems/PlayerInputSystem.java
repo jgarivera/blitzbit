@@ -7,7 +7,7 @@ import com.blitzbit.core.entity.Minion;
 import com.blitzbit.core.entity.components.EntityComponentMappers;
 import com.blitzbit.core.entity.components.VelocityComponent;
 import com.blitzbit.core.input.ActionListener;
-import com.blitzbit.core.input.InputAction;
+import com.blitzbit.core.input.ActionType;
 import com.blitzbit.core.world.GameWorld;
 
 public class PlayerInputSystem extends EntitySystem implements ActionListener {
@@ -22,7 +22,7 @@ public class PlayerInputSystem extends EntitySystem implements ActionListener {
     }
 
     @Override
-    public boolean onActionEntered(InputAction action) {
+    public boolean onActionEntered(ActionType action) {
         if (!checkProcessing()) {
             return false;
         }
@@ -55,7 +55,7 @@ public class PlayerInputSystem extends EntitySystem implements ActionListener {
     }
 
     @Override
-    public boolean onActionExited(InputAction action) {
+    public boolean onActionExited(ActionType action) {
         if (!checkProcessing()) {
             return false;
         }

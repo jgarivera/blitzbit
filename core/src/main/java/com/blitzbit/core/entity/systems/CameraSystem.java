@@ -9,7 +9,7 @@ import com.blitzbit.core.entity.components.PositionComponent;
 import com.blitzbit.core.entity.components.SizeComponent;
 import com.blitzbit.core.graphics.GameCamera;
 import com.blitzbit.core.input.ActionListener;
-import com.blitzbit.core.input.InputAction;
+import com.blitzbit.core.input.ActionType;
 import com.blitzbit.core.world.GameWorld;
 
 public class CameraSystem extends IteratingSystem implements ActionListener {
@@ -40,8 +40,8 @@ public class CameraSystem extends IteratingSystem implements ActionListener {
     }
 
     @Override
-    public boolean onActionEntered(InputAction action) {
-        if (action == InputAction.STOP_FOLLOW_CAMERA) {
+    public boolean onActionEntered(ActionType action) {
+        if (action == ActionType.STOP_FOLLOW_CAMERA) {
 
         }
 
@@ -49,7 +49,7 @@ public class CameraSystem extends IteratingSystem implements ActionListener {
     }
 
     @Override
-    public boolean onActionExited(InputAction action) {
+    public boolean onActionExited(ActionType action) {
         return false;
     }
 }
