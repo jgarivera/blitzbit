@@ -1,76 +1,60 @@
 package com.blitzbit.core.entity.systems;
 
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
-import com.badlogic.gdx.Gdx;
-import com.blitzbit.core.entity.Minion;
-import com.blitzbit.core.entity.components.EntityComponentMappers;
-import com.blitzbit.core.entity.components.VelocityComponent;
+import com.blitzbit.core.input.Action;
 import com.blitzbit.core.input.ActionListener;
 import com.blitzbit.core.input.ActionType;
+import com.blitzbit.core.input.actions.*;
 import com.blitzbit.core.world.GameWorld;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PlayerInputSystem extends EntitySystem implements ActionListener {
 
     private final GameWorld world;
 
-    private final Entity player;
+    private final Map<ActionType, Action> actions;
 
     public PlayerInputSystem(GameWorld world) {
         this.world = world;
-        player = world.getPlayer();
+        actions = new HashMap<>();
+        registerActions();
+    }
+
+    private void registerActions() {
+        actions.put(ActionType.MOVE_UP, new MoveUp());
+        actions.put(ActionType.MOVE_DOWN, new MoveDown());
+        actions.put(ActionType.MOVE_LEFT, new MoveLeft());
+        actions.put(ActionType.MOVE_RIGHT, new MoveRight());
+        actions.put(ActionType.SPAWN_MINION, new SpawnMinion());
     }
 
     @Override
-    public boolean onActionEntered(ActionType action) {
+    public boolean onActionEntered(ActionType actionType) {
         if (!checkProcessing()) {
             return false;
         }
 
-        VelocityComponent velocity = EntityComponentMappers.velocity.get(player);
-        float speed = 200;
+        Action action = actions.get(actionType);
 
-        switch (action) {
-            case MOVE_UP:
-                velocity.y = speed;
-                return true;
-            case MOVE_DOWN:
-                velocity.y = -speed;
-                return true;
-            case MOVE_LEFT:
-                velocity.x = -speed;
-                return true;
-            case MOVE_RIGHT:
-                velocity.x = speed;
-                return true;
-            case SPAWN_MINION:
-                float x = Gdx.input.getX();
-                float y = Gdx.input.getY();
-
-                world.spawnEntity(new Minion(x, y));
-                return true;
+        if (action != null) {
+            return action.enter(world);
         }
 
         return true;
     }
 
     @Override
-    public boolean onActionExited(ActionType action) {
+    public boolean onActionExited(ActionType actionType) {
         if (!checkProcessing()) {
             return false;
         }
 
-        VelocityComponent velocity = EntityComponentMappers.velocity.get(player);
+        Action action = actions.get(actionType);
 
-        switch (action) {
-            case MOVE_UP:
-            case MOVE_DOWN:
-                velocity.y = 0;
-                return true;
-            case MOVE_LEFT:
-            case MOVE_RIGHT:
-                velocity.x = 0;
-                return true;
+        if (action != null) {
+            return action.exit(world);
         }
 
         return true;
