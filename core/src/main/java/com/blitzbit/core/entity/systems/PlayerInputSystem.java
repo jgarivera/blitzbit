@@ -28,6 +28,7 @@ public class PlayerInputSystem extends EntitySystem implements ActionListener {
         actions.put(ActionType.MOVE_LEFT, new MoveLeft());
         actions.put(ActionType.MOVE_RIGHT, new MoveRight());
         actions.put(ActionType.SPAWN_MINION, new SpawnMinion());
+        actions.put(ActionType.TOGGLE_DEBUG_MODE, new ToggleDebugMode());
     }
 
     @Override
