@@ -18,6 +18,7 @@ import com.blitzbit.core.graphics.GameAssetManager;
 import com.blitzbit.core.graphics.GameCamera;
 import com.blitzbit.core.graphics.GameOverlay;
 import com.blitzbit.core.input.InputActionManager;
+import com.blitzbit.core.input.toggle.ToggleManager;
 import com.blitzbit.core.physics.GamePhysics;
 
 public class GameWorld {
@@ -27,6 +28,7 @@ public class GameWorld {
     private final Engine engine;
 
     private final GameAssetManager assetManager;
+    private final ToggleManager toggleManager;
 
     private final GamePhysics physics;
 
@@ -35,6 +37,7 @@ public class GameWorld {
 
     public GameWorld(GameAssetManager assetManager) {
         this.assetManager = assetManager;
+        toggleManager = new ToggleManager();
 
         batch = new SpriteBatch();
         camera = new GameCamera();
@@ -75,7 +78,10 @@ public class GameWorld {
     }
 
     public void render(float delta) {
-        physics.drawDebug(camera.combined);
+        if (toggleManager.getToggle(ToggleManager.DEBUG_MODE)) {
+            physics.drawDebug(camera.combined);
+        }
+
         batch.setProjectionMatrix(camera.combined);
 
         physics.update(delta);
@@ -114,5 +120,9 @@ public class GameWorld {
 
     public GamePhysics getPhysics() {
         return physics;
+    }
+
+    public ToggleManager getToggleManager() {
+        return toggleManager;
     }
 }
