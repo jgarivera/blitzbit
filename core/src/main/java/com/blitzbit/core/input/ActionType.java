@@ -7,4 +7,5 @@ public enum ActionType {
     MOVE_RIGHT,
     SPAWN_MINION,
     STOP_FOLLOW_CAMERA,
+    TOGGLE_DEBUG_MODE,
 }

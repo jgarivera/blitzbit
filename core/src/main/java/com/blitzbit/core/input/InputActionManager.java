@@ -27,6 +27,7 @@ public class InputActionManager extends InputAdapter {
         keyboardActionTypes.put(Input.Keys.S, ActionType.MOVE_DOWN);
         keyboardActionTypes.put(Input.Keys.A, ActionType.MOVE_LEFT);
         keyboardActionTypes.put(Input.Keys.D, ActionType.MOVE_RIGHT);
+        keyboardActionTypes.put(Input.Keys.O, ActionType.TOGGLE_DEBUG_MODE);
     }
 
     private void registerMouseActionTypes() {
