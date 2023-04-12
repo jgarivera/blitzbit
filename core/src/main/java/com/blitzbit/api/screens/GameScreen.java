@@ -1,4 +1,4 @@
-package com.blitzbit.internal.screens;
+package com.blitzbit.api.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.ScreenAdapter;

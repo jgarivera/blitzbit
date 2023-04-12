@@ -1,6 +1,7 @@
 package com.blitzbit.internal.screens;
 
 import com.badlogic.gdx.Game;
+import com.blitzbit.api.screens.GameScreen;
 import com.blitzbit.internal.graphics.GameAssetManager;
 
 public class MainMenuScreen extends GameScreen {
