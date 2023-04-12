@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.entity.components.*;
-import com.blitzbit.api.input.toggle.ToggleManager;
+import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
 
 import java.util.Comparator;
@@ -50,7 +50,7 @@ public class SpriteSystem extends SortedIteratingSystem {
         float originX = width / 2.0f;
         float originY = height / 2.0f;
 
-        if (world.getToggleManager().getToggle(ToggleManager.DEBUG_MODE)) {
+        if (world.getToggleManager().getToggle(GameToggleManager.DEBUG_MODE)) {
             font.draw(batch, String.format("x=%.2f,y=%.2f", x, y), x - originX, y - originY);
         }
 
