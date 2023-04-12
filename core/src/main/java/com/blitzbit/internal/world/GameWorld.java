@@ -17,8 +17,8 @@ import com.blitzbit.internal.entity.systems.SpriteSystem;
 import com.blitzbit.internal.graphics.GameAssetManager;
 import com.blitzbit.internal.graphics.GameCamera;
 import com.blitzbit.internal.graphics.GameOverlay;
-import com.blitzbit.internal.input.InputActionManager;
-import com.blitzbit.internal.input.toggle.ToggleManager;
+import com.blitzbit.internal.input.GameActionManager;
+import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.physics.GamePhysics;
 
 public class GameWorld {
@@ -28,7 +28,7 @@ public class GameWorld {
     private final Engine engine;
 
     private final GameAssetManager assetManager;
-    private final ToggleManager toggleManager;
+    private final GameToggleManager toggleManager;
 
     private final GamePhysics physics;
 
@@ -37,7 +37,7 @@ public class GameWorld {
 
     public GameWorld(GameAssetManager assetManager) {
         this.assetManager = assetManager;
-        toggleManager = new ToggleManager();
+        toggleManager = new GameToggleManager();
 
         batch = new SpriteBatch();
         camera = new GameCamera();
@@ -66,11 +66,11 @@ public class GameWorld {
         PlayerInputSystem playerInputSystem = new PlayerInputSystem(this);
         engine.addSystem(playerInputSystem);
 
-        InputActionManager inputActionManager = new InputActionManager();
-        inputActionManager.subscribe(playerInputSystem);
-        inputActionManager.subscribe(cameraSystem);
+        GameActionManager actionManager = new GameActionManager();
+        actionManager.subscribe(playerInputSystem);
+        actionManager.subscribe(cameraSystem);
 
-        Gdx.input.setInputProcessor(inputActionManager);
+        Gdx.input.setInputProcessor(actionManager);
     }
 
     public void show() {
@@ -78,7 +78,7 @@ public class GameWorld {
     }
 
     public void render(float delta) {
-        if (toggleManager.getToggle(ToggleManager.DEBUG_MODE)) {
+        if (toggleManager.getToggle(GameToggleManager.DEBUG_MODE)) {
             physics.drawDebug(camera.combined);
         }
 
@@ -122,7 +122,7 @@ public class GameWorld {
         return physics;
     }
 
-    public ToggleManager getToggleManager() {
+    public GameToggleManager getToggleManager() {
         return toggleManager;
     }
 }
