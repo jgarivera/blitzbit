@@ -3,8 +3,7 @@ package com.blitzbit;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.blitzbit.core.screens.MainMenuScreen;
-import com.blitzbit.core.screens.PlayScreen;
+import com.blitzbit.internal.screens.MainMenuScreen;
 
 public class BlitzbitGame extends Game {
 
