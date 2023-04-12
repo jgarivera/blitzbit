@@ -1,8 +1,8 @@
 package com.blitzbit.internal.entity.systems;
 
 import com.badlogic.ashley.core.EntitySystem;
-import com.blitzbit.internal.input.Action;
-import com.blitzbit.internal.input.ActionListener;
+import com.blitzbit.api.input.action.Action;
+import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.internal.input.ActionType;
 import com.blitzbit.internal.input.actions.*;
 import com.blitzbit.internal.world.GameWorld;

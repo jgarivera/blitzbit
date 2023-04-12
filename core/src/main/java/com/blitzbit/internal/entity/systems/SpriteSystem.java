@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.entity.components.*;
-import com.blitzbit.internal.input.toggle.ToggleManager;
+import com.blitzbit.api.input.toggle.ToggleManager;
 import com.blitzbit.internal.world.GameWorld;
 
 import java.util.Comparator;

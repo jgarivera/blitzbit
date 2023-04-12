@@ -1,4 +1,4 @@
-package com.blitzbit.internal.input;
+package com.blitzbit.api.input.action;
 
 import com.blitzbit.internal.world.GameWorld;
 

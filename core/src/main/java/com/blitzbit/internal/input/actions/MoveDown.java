@@ -3,7 +3,7 @@ package com.blitzbit.internal.input.actions;
 import com.badlogic.ashley.core.Entity;
 import com.blitzbit.internal.entity.components.EntityComponentMappers;
 import com.blitzbit.internal.entity.components.VelocityComponent;
-import com.blitzbit.internal.input.Action;
+import com.blitzbit.api.input.action.Action;
 import com.blitzbit.internal.world.GameWorld;
 
 public class MoveDown implements Action {

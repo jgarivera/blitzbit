@@ -1,7 +1,7 @@
 package com.blitzbit.internal.input.actions;
 
-import com.blitzbit.internal.input.Action;
-import com.blitzbit.internal.input.toggle.ToggleManager;
+import com.blitzbit.api.input.action.Action;
+import com.blitzbit.api.input.toggle.ToggleManager;
 import com.blitzbit.internal.world.GameWorld;
 
 public class ToggleDebugMode implements Action {

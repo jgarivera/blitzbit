@@ -8,7 +8,7 @@ import com.blitzbit.internal.entity.components.EntityComponentMappers;
 import com.blitzbit.internal.entity.components.PositionComponent;
 import com.blitzbit.internal.entity.components.SizeComponent;
 import com.blitzbit.internal.graphics.GameCamera;
-import com.blitzbit.internal.input.ActionListener;
+import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.internal.input.ActionType;
 import com.blitzbit.internal.world.GameWorld;
 
