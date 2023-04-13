@@ -1,12 +1,11 @@
 package com.blitzbit.api.input.action;
 
 import com.badlogic.gdx.InputAdapter;
-import com.blitzbit.internal.input.GameActionType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ActionManager extends InputAdapter {
+public abstract class ActionManager extends InputAdapter {
 
     private final ArrayList<ActionListener> actionListeners;
     private final HashMap<Integer, ActionType> keyboardActionTypes;
@@ -17,7 +16,14 @@ public class ActionManager extends InputAdapter {
         actionListeners = new ArrayList<>();
         keyboardActionTypes = new HashMap<>();
         mouseActionTypes = new HashMap<>();
+
+        registerKeyboardActions();
+        registerMouseActions();
     }
+
+    protected abstract void registerKeyboardActions();
+
+    protected abstract void registerMouseActions();
 
     public void addKeyboardAction(int keycode, ActionType actionType) {
         keyboardActionTypes.put(keycode, actionType);

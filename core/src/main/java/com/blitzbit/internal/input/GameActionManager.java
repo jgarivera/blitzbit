@@ -6,11 +6,10 @@ import com.blitzbit.api.input.action.ActionManager;
 public class GameActionManager extends ActionManager {
 
     public GameActionManager() {
-        registerKeyboardActions();
-        registerMouseActions();
+        super();
     }
 
-    private void registerKeyboardActions() {
+    protected void registerKeyboardActions() {
         addKeyboardAction(Input.Keys.W, GameActionType.MOVE_UP);
         addKeyboardAction(Input.Keys.S, GameActionType.MOVE_DOWN);
         addKeyboardAction(Input.Keys.A, GameActionType.MOVE_LEFT);
@@ -18,7 +17,7 @@ public class GameActionManager extends ActionManager {
         addKeyboardAction(Input.Keys.O, GameActionType.TOGGLE_DEBUG_MODE);
     }
 
-    private void registerMouseActions() {
+    protected void registerMouseActions() {
         addMouseAction(Input.Buttons.LEFT, GameActionType.SPAWN_MINION);
     }
 }
