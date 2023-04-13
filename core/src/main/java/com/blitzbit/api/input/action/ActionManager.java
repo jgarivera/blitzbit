@@ -1,7 +1,7 @@
 package com.blitzbit.api.input.action;
 
 import com.badlogic.gdx.InputAdapter;
-import com.blitzbit.internal.input.ActionType;
+import com.blitzbit.internal.input.GameActionType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
