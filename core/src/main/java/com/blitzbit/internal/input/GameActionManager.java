@@ -11,14 +11,14 @@ public class GameActionManager extends ActionManager {
     }
 
     private void registerKeyboardActions() {
-        addKeyboardAction(Input.Keys.W, ActionType.MOVE_UP);
-        addKeyboardAction(Input.Keys.S, ActionType.MOVE_DOWN);
-        addKeyboardAction(Input.Keys.A, ActionType.MOVE_LEFT);
-        addKeyboardAction(Input.Keys.D, ActionType.MOVE_RIGHT);
-        addKeyboardAction(Input.Keys.O, ActionType.TOGGLE_DEBUG_MODE);
+        addKeyboardAction(Input.Keys.W, GameActionType.MOVE_UP);
+        addKeyboardAction(Input.Keys.S, GameActionType.MOVE_DOWN);
+        addKeyboardAction(Input.Keys.A, GameActionType.MOVE_LEFT);
+        addKeyboardAction(Input.Keys.D, GameActionType.MOVE_RIGHT);
+        addKeyboardAction(Input.Keys.O, GameActionType.TOGGLE_DEBUG_MODE);
     }
 
     private void registerMouseActions() {
-        addMouseAction(Input.Buttons.LEFT, ActionType.SPAWN_MINION);
+        addMouseAction(Input.Buttons.LEFT, GameActionType.SPAWN_MINION);
     }
 }
