@@ -1,4 +1,4 @@
-package com.blitzbit.internal.entity.components;
+package com.blitzbit.internal.world.entity.components;
 
 import com.badlogic.ashley.core.Component;
 

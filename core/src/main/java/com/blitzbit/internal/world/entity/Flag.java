@@ -1,7 +1,8 @@
-package com.blitzbit.internal.entity;
+package com.blitzbit.internal.world.entity;
 
 import com.badlogic.ashley.core.Entity;
 import com.blitzbit.internal.entity.components.*;
+import com.blitzbit.internal.world.entity.components.*;
 
 public class Flag extends Entity {
 

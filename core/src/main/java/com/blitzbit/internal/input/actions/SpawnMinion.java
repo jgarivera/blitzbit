@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector3;
 import com.blitzbit.api.input.action.Action;
 import com.blitzbit.api.world.World;
-import com.blitzbit.internal.entity.Minion;
+import com.blitzbit.internal.world.entity.Minion;
 
 public class SpawnMinion implements Action {
 
