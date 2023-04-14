@@ -1,4 +1,4 @@
-package com.blitzbit.internal.physics;
+package com.blitzbit.internal.world.physics;
 
 import com.blitzbit.api.world.physics.Physics;
 

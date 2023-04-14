@@ -22,7 +22,7 @@ import com.blitzbit.internal.graphics.GameCamera;
 import com.blitzbit.internal.graphics.GameOverlay;
 import com.blitzbit.internal.input.GameActionManager;
 import com.blitzbit.internal.input.GameToggleManager;
-import com.blitzbit.internal.physics.GamePhysics;
+import com.blitzbit.internal.world.physics.GamePhysics;
 
 public class GameWorld extends World {
     private final SpriteBatch batch;
