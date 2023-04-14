@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.entity.components;
+package com.blitzbit.internal.world.ecs.components;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.graphics.Color;

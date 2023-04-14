@@ -1,9 +1,9 @@
-package com.blitzbit.internal.world.entity;
+package com.blitzbit.internal.world.ecs.entities;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.blitzbit.internal.entity.components.*;
-import com.blitzbit.internal.world.entity.components.*;
+import com.blitzbit.internal.world.ecs.components.*;
 
 public class Minion extends Entity {
 

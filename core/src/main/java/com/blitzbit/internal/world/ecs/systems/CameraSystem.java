@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.entity.systems;
+package com.blitzbit.internal.world.ecs.systems;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
@@ -7,10 +7,10 @@ import com.blitzbit.api.graphics.Camera;
 import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.api.input.action.ActionType;
 import com.blitzbit.api.world.World;
-import com.blitzbit.internal.world.entity.components.CameraFollowComponent;
-import com.blitzbit.internal.world.entity.components.EntityComponentMappers;
-import com.blitzbit.internal.world.entity.components.PositionComponent;
-import com.blitzbit.internal.world.entity.components.SizeComponent;
+import com.blitzbit.internal.world.ecs.components.CameraFollowComponent;
+import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.ecs.components.PositionComponent;
+import com.blitzbit.internal.world.ecs.components.SizeComponent;
 import com.blitzbit.internal.input.GameActionType;
 
 public class CameraSystem extends IteratingSystem implements ActionListener {

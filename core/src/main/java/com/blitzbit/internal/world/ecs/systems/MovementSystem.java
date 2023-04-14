@@ -1,14 +1,14 @@
-package com.blitzbit.internal.world.entity.systems;
+package com.blitzbit.internal.world.ecs.systems;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.blitzbit.internal.world.entity.components.EntityComponentMappers;
-import com.blitzbit.internal.world.entity.components.PhysicsBodyComponent;
-import com.blitzbit.internal.world.entity.components.PositionComponent;
-import com.blitzbit.internal.world.entity.components.VelocityComponent;
+import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.ecs.components.PhysicsBodyComponent;
+import com.blitzbit.internal.world.ecs.components.PositionComponent;
+import com.blitzbit.internal.world.ecs.components.VelocityComponent;
 
 public class MovementSystem extends IteratingSystem {
 

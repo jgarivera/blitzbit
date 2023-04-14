@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.entity.systems;
+package com.blitzbit.internal.world.ecs.systems;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.blitzbit.api.input.action.Action;

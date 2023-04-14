@@ -3,8 +3,8 @@ package com.blitzbit.internal.input.actions;
 import com.badlogic.ashley.core.Entity;
 import com.blitzbit.api.input.action.Action;
 import com.blitzbit.api.world.World;
-import com.blitzbit.internal.world.entity.components.EntityComponentMappers;
-import com.blitzbit.internal.world.entity.components.VelocityComponent;
+import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.ecs.components.VelocityComponent;
 
 public class MoveLeft implements Action {
 

@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.entity.systems;
+package com.blitzbit.internal.world.ecs.systems;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.entity.components.*;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
-import com.blitzbit.internal.world.entity.components.*;
+import com.blitzbit.internal.world.ecs.components.*;
 
 import java.util.Comparator;
 
