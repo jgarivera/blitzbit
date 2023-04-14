@@ -7,11 +7,11 @@ import com.blitzbit.api.graphics.Camera;
 import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.api.input.action.ActionType;
 import com.blitzbit.api.world.World;
+import com.blitzbit.internal.input.GameActionType;
 import com.blitzbit.internal.world.ecs.components.CameraFollowComponent;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.ecs.components.PositionComponent;
 import com.blitzbit.internal.world.ecs.components.SizeComponent;
-import com.blitzbit.internal.input.GameActionType;
 
 public class CameraSystem extends IteratingSystem implements ActionListener {
 

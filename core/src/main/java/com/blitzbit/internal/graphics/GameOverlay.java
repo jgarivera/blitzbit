@@ -17,7 +17,7 @@ public class GameOverlay {
     public void render(float delta) {
         int fps = Gdx.graphics.getFramesPerSecond();
         batch.begin();
-        font.draw(batch, String.format("FPS: %d", fps),  15, Gdx.graphics.getHeight() - 15);
+        font.draw(batch, String.format("FPS: %d", fps), 15, Gdx.graphics.getHeight() - 15);
         batch.end();
     }
 }

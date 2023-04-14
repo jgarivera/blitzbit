@@ -5,7 +5,7 @@ import com.blitzbit.api.input.action.ActionType;
 import com.blitzbit.internal.input.actions.*;
 
 public enum GameActionType implements ActionType {
-    MOVE_UP (new MoveUp()),
+    MOVE_UP(new MoveUp()),
     MOVE_DOWN(new MoveDown()),
     MOVE_LEFT(new MoveLeft()),
     MOVE_RIGHT(new MoveRight()),

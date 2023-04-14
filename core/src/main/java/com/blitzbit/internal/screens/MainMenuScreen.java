@@ -21,7 +21,7 @@ public class MainMenuScreen extends GameScreen {
     }
 
     @Override
-    public void dispose () {
+    public void dispose() {
         assetManager.dispose();
     }
 }
