@@ -3,13 +3,16 @@ package com.blitzbit.internal.world;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
-import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.blitzbit.api.world.World;
 import com.blitzbit.internal.entity.Flag;
 import com.blitzbit.internal.entity.Minion;
 import com.blitzbit.internal.entity.Player;
 import com.blitzbit.internal.entity.components.InputComponent;
+import com.blitzbit.internal.entity.components.PhysicsBodyComponent;
+import com.blitzbit.internal.entity.components.PositionComponent;
+import com.blitzbit.internal.entity.listeners.PhysicsBodyListener;
 import com.blitzbit.internal.entity.systems.CameraSystem;
 import com.blitzbit.internal.entity.systems.MovementSystem;
 import com.blitzbit.internal.entity.systems.PlayerInputSystem;
@@ -21,56 +24,47 @@ import com.blitzbit.internal.input.GameActionManager;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.physics.GamePhysics;
 
-public class GameWorld {
+public class GameWorld extends World {
     private final SpriteBatch batch;
-    private final GameCamera camera;
+
     private final GameOverlay overlay;
-    private final Engine engine;
-
-    private final GameAssetManager assetManager;
-    private final GameToggleManager toggleManager;
-
-    private final GamePhysics physics;
 
     private final float WORLD_HEIGHT = 1280;
     private final float WORLD_WIDTH = 720;
 
     public GameWorld(GameAssetManager assetManager) {
-        this.assetManager = assetManager;
-        toggleManager = new GameToggleManager();
+        super(new Engine(), new GamePhysics(), new GameCamera(), new GameToggleManager(), assetManager);
 
         batch = new SpriteBatch();
-        camera = new GameCamera();
         overlay = new GameOverlay();
-        engine = new Engine();
-
-        physics = new GamePhysics();
-        physics.register(engine);
-
-        spawnEntity(new Player(0, 0));
-        spawnEntity(new Minion(100, 100));
-        spawnEntity(new Minion(200, 50));
-        spawnEntity(new Flag(175, 175));
 
         setupEngine();
+
+        addEntity(new Player(0, 0));
+        addEntity(new Minion(100, 100));
+        addEntity(new Minion(200, 50));
+        addEntity(new Flag(175, 175));
     }
 
     private void setupEngine() {
-        engine.addSystem(new SpriteSystem(this, batch));
+        addSystem(new SpriteSystem(this, batch));
 
         CameraSystem cameraSystem = new CameraSystem(this);
-        engine.addSystem(cameraSystem);
+        addSystem(cameraSystem);
 
-        engine.addSystem(new MovementSystem());
+        addSystem(new MovementSystem());
 
         PlayerInputSystem playerInputSystem = new PlayerInputSystem(this);
-        engine.addSystem(playerInputSystem);
+        addSystem(playerInputSystem);
 
         GameActionManager actionManager = new GameActionManager();
         actionManager.subscribe(playerInputSystem);
         actionManager.subscribe(cameraSystem);
 
         Gdx.input.setInputProcessor(actionManager);
+
+        Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
+        addEntityListenerFor(family, new PhysicsBodyListener(physics));
     }
 
     public void show() {
@@ -83,9 +77,6 @@ public class GameWorld {
         }
 
         batch.setProjectionMatrix(camera.combined);
-
-        physics.update(delta);
-        engine.update(delta);
         overlay.render(delta);
     }
 
@@ -98,31 +89,10 @@ public class GameWorld {
         physics.dispose();
     }
 
-    public void spawnEntity(Entity entity) {
-        engine.addEntity(entity);
-    }
-
     /**
      * Assumes the only entity with an InputComponent is the player
      */
     public Entity getPlayer() {
-        ImmutableArray<Entity> controllableEntities = engine.getEntitiesFor(Family.all(InputComponent.class).get());
-        return controllableEntities.first();
-    }
-
-    public GameCamera getCamera() {
-        return camera;
-    }
-
-    public GameAssetManager getAssetManager() {
-        return assetManager;
-    }
-
-    public GamePhysics getPhysics() {
-        return physics;
-    }
-
-    public GameToggleManager getToggleManager() {
-        return toggleManager;
+        return getFirstEntityFor(Family.all(InputComponent.class).get());
     }
 }
