@@ -1,9 +1,9 @@
 package com.blitzbit.api.input.action;
 
-import com.blitzbit.internal.world.GameWorld;
+import com.blitzbit.api.world.World;
 
 public interface Action {
-    boolean enter(GameWorld world);
+    boolean enter(World world);
 
-    boolean exit(GameWorld world);
+    boolean exit(World world);
 }
