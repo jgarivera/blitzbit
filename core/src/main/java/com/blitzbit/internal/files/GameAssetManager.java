@@ -1,4 +1,4 @@
-package com.blitzbit.internal.graphics;
+package com.blitzbit.internal.files;
 
 
 import com.blitzbit.api.files.AssetManager;

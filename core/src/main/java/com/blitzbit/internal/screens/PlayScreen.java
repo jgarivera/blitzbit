@@ -3,7 +3,7 @@ package com.blitzbit.internal.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.blitzbit.api.screens.GameScreen;
-import com.blitzbit.internal.graphics.GameAssetManager;
+import com.blitzbit.internal.files.GameAssetManager;
 import com.blitzbit.internal.world.GameWorld;
 
 public class PlayScreen extends GameScreen {

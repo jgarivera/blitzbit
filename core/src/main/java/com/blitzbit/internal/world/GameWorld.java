@@ -17,7 +17,7 @@ import com.blitzbit.internal.entity.systems.CameraSystem;
 import com.blitzbit.internal.entity.systems.MovementSystem;
 import com.blitzbit.internal.entity.systems.PlayerInputSystem;
 import com.blitzbit.internal.entity.systems.SpriteSystem;
-import com.blitzbit.internal.graphics.GameAssetManager;
+import com.blitzbit.internal.files.GameAssetManager;
 import com.blitzbit.internal.graphics.GameCamera;
 import com.blitzbit.internal.graphics.GameOverlay;
 import com.blitzbit.internal.input.GameActionManager;
