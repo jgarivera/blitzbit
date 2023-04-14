@@ -3,21 +3,21 @@ package com.blitzbit.internal.entity.systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.blitzbit.api.graphics.Camera;
+import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.api.input.action.ActionType;
+import com.blitzbit.api.world.World;
 import com.blitzbit.internal.entity.components.CameraFollowComponent;
 import com.blitzbit.internal.entity.components.EntityComponentMappers;
 import com.blitzbit.internal.entity.components.PositionComponent;
 import com.blitzbit.internal.entity.components.SizeComponent;
-import com.blitzbit.internal.graphics.GameCamera;
-import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.internal.input.GameActionType;
-import com.blitzbit.internal.world.GameWorld;
 
 public class CameraSystem extends IteratingSystem implements ActionListener {
 
-    private final GameCamera camera;
+    private final Camera camera;
 
-    public CameraSystem(GameWorld world) {
+    public CameraSystem(World world) {
         super(Family.all(CameraFollowComponent.class, PositionComponent.class, SizeComponent.class).get());
         camera = world.getCamera();
     }

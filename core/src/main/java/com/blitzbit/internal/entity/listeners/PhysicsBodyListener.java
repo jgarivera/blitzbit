@@ -7,19 +7,18 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.blitzbit.api.world.physics.Physics;
 import com.blitzbit.internal.entity.components.EntityComponentMappers;
 import com.blitzbit.internal.entity.components.PhysicsBodyComponent;
 import com.blitzbit.internal.entity.components.PositionComponent;
 import com.blitzbit.internal.entity.components.SizeComponent;
-import com.blitzbit.internal.physics.GamePhysics;
 
 public class PhysicsBodyListener implements EntityListener {
-    private final GamePhysics physics;
+
     private final World physicsWorld;
 
-    public PhysicsBodyListener(GamePhysics physics) {
-        this.physics = physics;
-        physicsWorld = physics.getWorld();
+    public PhysicsBodyListener(Physics physics) {
+        physicsWorld = physics.getWorldSimulation();
     }
 
     @Override
