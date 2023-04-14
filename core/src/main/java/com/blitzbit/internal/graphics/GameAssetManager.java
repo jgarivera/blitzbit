@@ -1,28 +1,14 @@
 package com.blitzbit.internal.graphics;
 
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
+
+import com.blitzbit.api.files.AssetManager;
 
 public class GameAssetManager extends AssetManager {
-    public GameAssetManager() {
-        super();
-    }
 
-    public void load() {
-        loadTextures();
-    }
-
-    private void loadTextures() {
+    @Override
+    protected void loadTextures() {
         loadTexture("player.png");
         loadTexture("minion.png");
         loadTexture("flag.png");
-    }
-
-    private void loadTexture(String filename) {
-        load(filename, Texture.class);
-    }
-
-    public Texture getTexture(String filename) {
-        return get(filename, Texture.class);
     }
 }
