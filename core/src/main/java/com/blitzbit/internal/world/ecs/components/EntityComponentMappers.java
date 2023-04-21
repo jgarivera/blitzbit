@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 public class EntityComponentMappers {
     public static final ComponentMapper<PositionComponent> position = getFor(PositionComponent.class);
     public static final ComponentMapper<VelocityComponent> velocity = getFor(VelocityComponent.class);
+    public static final ComponentMapper<SpeedComponent> speed = getFor(SpeedComponent.class);
     public static final ComponentMapper<SizeComponent> size = getFor(SizeComponent.class);
     public static final ComponentMapper<SpriteComponent> sprite = getFor(SpriteComponent.class);
     public static final ComponentMapper<ColorComponent> color = getFor(ColorComponent.class);
