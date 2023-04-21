@@ -9,6 +9,7 @@ public class Player extends Entity {
     public Player(float spawnX, float spawnY) {
         add(new PositionComponent(spawnX, spawnY));
         add(new VelocityComponent());
+        add(new SpeedComponent(200.0f));
         add(new InputComponent());
         add(new SizeComponent(32.0f, 32.0f));
         add(new SpriteComponent("player.png"));
