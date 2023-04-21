@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import com.blitzbit.api.input.action.Action;
 import com.blitzbit.api.world.World;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.ecs.components.SpeedComponent;
 import com.blitzbit.internal.world.ecs.components.VelocityComponent;
 
 public class MoveLeft implements Action {
@@ -11,9 +12,9 @@ public class MoveLeft implements Action {
     public boolean enter(World world) {
         Entity player = world.getPlayer();
         VelocityComponent velocity = EntityComponentMappers.velocity.get(player);
-        float speed = 200;
+        SpeedComponent speed = EntityComponentMappers.speed.get(player);
 
-        velocity.x = -speed;
+        velocity.x = -speed.speed;
 
         return true;
     }
