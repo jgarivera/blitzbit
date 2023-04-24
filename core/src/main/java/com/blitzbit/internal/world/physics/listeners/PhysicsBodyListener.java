@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.ecs.listeners;
+package com.blitzbit.internal.world.physics.listeners;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntityListener;
@@ -9,9 +9,9 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.blitzbit.api.world.physics.Physics;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
-import com.blitzbit.internal.world.ecs.components.PhysicsBodyComponent;
-import com.blitzbit.internal.world.ecs.components.PositionComponent;
-import com.blitzbit.internal.world.ecs.components.SizeComponent;
+import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
+import com.blitzbit.internal.world.physics.components.PositionComponent;
+import com.blitzbit.internal.world.view.components.SizeComponent;
 
 public class PhysicsBodyListener implements EntityListener {
 
