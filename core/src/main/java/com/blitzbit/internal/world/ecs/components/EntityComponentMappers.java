@@ -4,6 +4,14 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
+import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
+import com.blitzbit.internal.world.physics.components.PositionComponent;
+import com.blitzbit.internal.world.physics.components.SpeedComponent;
+import com.blitzbit.internal.world.physics.components.VelocityComponent;
+import com.blitzbit.internal.world.view.components.CameraFollowComponent;
+import com.blitzbit.internal.world.view.components.ColorComponent;
+import com.blitzbit.internal.world.view.components.SizeComponent;
+import com.blitzbit.internal.world.view.components.SpriteComponent;
 
 public class EntityComponentMappers {
     public static final ComponentMapper<PositionComponent> position = getFor(PositionComponent.class);
