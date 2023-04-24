@@ -4,8 +4,8 @@ import com.badlogic.ashley.core.Entity;
 import com.blitzbit.api.input.action.Action;
 import com.blitzbit.api.world.World;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
-import com.blitzbit.internal.world.ecs.components.SpeedComponent;
-import com.blitzbit.internal.world.ecs.components.VelocityComponent;
+import com.blitzbit.internal.world.physics.components.SpeedComponent;
+import com.blitzbit.internal.world.physics.components.VelocityComponent;
 
 public class MoveDown implements Action {
 
