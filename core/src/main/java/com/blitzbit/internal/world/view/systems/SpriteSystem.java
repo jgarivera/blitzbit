@@ -1,4 +1,4 @@
-package com.blitzbit.internal.world.ecs.systems;
+package com.blitzbit.internal.world.view.systems;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
@@ -9,7 +9,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
-import com.blitzbit.internal.world.ecs.components.*;
+import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.physics.components.PositionComponent;
+import com.blitzbit.internal.world.view.components.ColorComponent;
+import com.blitzbit.internal.world.view.components.SizeComponent;
+import com.blitzbit.internal.world.view.components.SpriteComponent;
 
 import java.util.Comparator;
 
