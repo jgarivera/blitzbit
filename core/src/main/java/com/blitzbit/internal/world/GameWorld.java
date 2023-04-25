@@ -12,13 +12,13 @@ import com.blitzbit.internal.graphics.GameOverlay;
 import com.blitzbit.internal.input.GameActionManager;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.npcs.entities.Minion;
-import com.blitzbit.internal.world.player.entities.Player;
 import com.blitzbit.internal.world.physics.GamePhysics;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.listeners.PhysicsBodyListener;
 import com.blitzbit.internal.world.physics.systems.MovementSystem;
 import com.blitzbit.internal.world.player.components.InputComponent;
+import com.blitzbit.internal.world.player.entities.Player;
 import com.blitzbit.internal.world.player.systems.PlayerInputSystem;
 import com.blitzbit.internal.world.structures.entities.Flag;
 import com.blitzbit.internal.world.view.systems.CameraSystem;
@@ -59,7 +59,6 @@ public class GameWorld extends World {
 
         GameActionManager actionManager = new GameActionManager();
         actionManager.subscribe(playerInputSystem);
-        actionManager.subscribe(cameraSystem);
 
         Gdx.input.setInputProcessor(actionManager);
 
