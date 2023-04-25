@@ -1,25 +1,20 @@
-package com.blitzbit.internal.world.player.systems;
+package com.blitzbit.internal.world.player.listeners;
 
-import com.badlogic.ashley.core.EntitySystem;
 import com.blitzbit.api.input.action.Action;
 import com.blitzbit.api.input.action.ActionListener;
 import com.blitzbit.api.input.action.ActionType;
 import com.blitzbit.internal.world.GameWorld;
 
-public class PlayerInputSystem extends EntitySystem implements ActionListener {
+public class PlayerActionListener implements ActionListener {
 
     private final GameWorld world;
 
-    public PlayerInputSystem(GameWorld world) {
+    public PlayerActionListener(GameWorld world) {
         this.world = world;
     }
 
     @Override
     public boolean onActionEntered(ActionType actionType) {
-        if (!checkProcessing()) {
-            return false;
-        }
-
         Action action = actionType.getAction();
 
         if (action != null) {
@@ -31,10 +26,6 @@ public class PlayerInputSystem extends EntitySystem implements ActionListener {
 
     @Override
     public boolean onActionExited(ActionType actionType) {
-        if (!checkProcessing()) {
-            return false;
-        }
-
         Action action = actionType.getAction();
 
         if (action != null) {

@@ -19,7 +19,7 @@ import com.blitzbit.internal.world.physics.listeners.PhysicsBodyListener;
 import com.blitzbit.internal.world.physics.systems.MovementSystem;
 import com.blitzbit.internal.world.player.components.InputComponent;
 import com.blitzbit.internal.world.player.entities.Player;
-import com.blitzbit.internal.world.player.systems.PlayerInputSystem;
+import com.blitzbit.internal.world.player.listeners.PlayerActionListener;
 import com.blitzbit.internal.world.structures.entities.Flag;
 import com.blitzbit.internal.world.view.systems.CameraSystem;
 import com.blitzbit.internal.world.view.systems.SpriteSystem;
@@ -54,11 +54,9 @@ public class GameWorld extends World {
 
         addSystem(new MovementSystem());
 
-        PlayerInputSystem playerInputSystem = new PlayerInputSystem(this);
-        addSystem(playerInputSystem);
-
+        PlayerActionListener playerActionListener = new PlayerActionListener(this);
         GameActionManager actionManager = new GameActionManager();
-        actionManager.subscribe(playerInputSystem);
+        actionManager.subscribe(playerActionListener);
 
         Gdx.input.setInputProcessor(actionManager);
 
