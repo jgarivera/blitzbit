@@ -39,6 +39,7 @@ public class GameWorld extends World {
         overlay = new GameOverlay();
 
         setupEngine();
+        setupActionManager();
 
         addEntity(new Player(0, 0));
         addEntity(new Minion(100, 100));
@@ -48,20 +49,18 @@ public class GameWorld extends World {
 
     private void setupEngine() {
         addSystem(new SpriteSystem(this, batch));
-
-        CameraSystem cameraSystem = new CameraSystem(this);
-        addSystem(cameraSystem);
-
+        addSystem(new CameraSystem(this));
         addSystem(new MovementSystem());
-
-        PlayerActionListener playerActionListener = new PlayerActionListener(this);
-        GameActionManager actionManager = new GameActionManager();
-        actionManager.subscribe(playerActionListener);
-
-        Gdx.input.setInputProcessor(actionManager);
 
         Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
         addEntityListenerFor(family, new PhysicsBodyListener(physics));
+    }
+
+    private void setupActionManager() {
+        GameActionManager actionManager = new GameActionManager();
+        actionManager.subscribe(new PlayerActionListener(this));
+
+        Gdx.input.setInputProcessor(actionManager);
     }
 
     public void show() {
