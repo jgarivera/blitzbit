@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.ColorComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
@@ -40,7 +41,7 @@ public class SpriteSystem extends SortedIteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        PositionComponent position = EntityComponentMappers.position.get(entity);
+        PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
         SpriteComponent sprite = EntityComponentMappers.sprite.get(entity);
         ColorComponent color = EntityComponentMappers.getColorComponentOrDefault(entity);
         SizeComponent size = EntityComponentMappers.getSizeComponentOrDefault(entity);

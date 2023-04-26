@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.blitzbit.api.world.physics.Physics;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
+import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
 
@@ -23,8 +24,8 @@ public class PhysicsBodyListener implements EntityListener {
 
     @Override
     public void entityAdded(Entity entity) {
-        PositionComponent position = EntityComponentMappers.position.get(entity);
-        PhysicsBodyComponent physics = EntityComponentMappers.physics.get(entity);
+        PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
+        PhysicsBodyComponent physics = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
         SizeComponent size = EntityComponentMappers.getSizeComponentOrDefault(entity);
 
         BodyDef bodyDef = new BodyDef();
@@ -47,7 +48,7 @@ public class PhysicsBodyListener implements EntityListener {
 
     @Override
     public void entityRemoved(Entity entity) {
-        PhysicsBodyComponent physics = EntityComponentMappers.physics.get(entity);
+        PhysicsBodyComponent physics = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
         physicsWorld.destroyBody(physics.body);
 
         Gdx.app.debug("Physics", "Destroyed body for entity");

@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
+import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.components.VelocityComponent;
 
@@ -18,9 +19,9 @@ public class MovementSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        PositionComponent position = EntityComponentMappers.position.get(entity);
-        VelocityComponent velocity = EntityComponentMappers.velocity.get(entity);
-        PhysicsBodyComponent physics = EntityComponentMappers.physics.get(entity);
+        PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
+        VelocityComponent velocity = PhysicsComponentMapper.VELOCITY.get(entity);
+        PhysicsBodyComponent physics = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
 
         Body body = physics.body;
         Vector2 bodyPosition = body.getPosition();

@@ -6,6 +6,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.blitzbit.api.graphics.Camera;
 import com.blitzbit.api.world.World;
 import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
+import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.CameraFollowComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
@@ -27,7 +28,7 @@ public class CameraSystem extends IteratingSystem {
             return;
         }
 
-        PositionComponent position = EntityComponentMappers.position.get(entity);
+        PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
         SizeComponent size = EntityComponentMappers.size.get(entity);
 
         float followX = position.x;
