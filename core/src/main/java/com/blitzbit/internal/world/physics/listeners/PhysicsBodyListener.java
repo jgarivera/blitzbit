@@ -8,11 +8,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.blitzbit.api.world.physics.Physics;
-import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
+import com.blitzbit.internal.world.view.components.ViewComponentMapper;
 
 public class PhysicsBodyListener implements EntityListener {
 
@@ -26,7 +26,7 @@ public class PhysicsBodyListener implements EntityListener {
     public void entityAdded(Entity entity) {
         PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
         PhysicsBodyComponent physics = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
-        SizeComponent size = EntityComponentMappers.getSizeComponentOrDefault(entity);
+        SizeComponent size = ViewComponentMapper.getSizeComponentOrDefault(entity);
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;

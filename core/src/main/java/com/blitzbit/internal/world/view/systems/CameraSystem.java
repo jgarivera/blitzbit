@@ -5,11 +5,11 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.blitzbit.api.graphics.Camera;
 import com.blitzbit.api.world.World;
-import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.CameraFollowComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
+import com.blitzbit.internal.world.view.components.ViewComponentMapper;
 
 public class CameraSystem extends IteratingSystem {
 
@@ -22,14 +22,14 @@ public class CameraSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        CameraFollowComponent cameraFollow = EntityComponentMappers.cameraFollow.get(entity);
+        CameraFollowComponent cameraFollow = ViewComponentMapper.CAMERA_FOLLOW.get(entity);
 
         if (!cameraFollow.shouldFollow) {
             return;
         }
 
         PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
-        SizeComponent size = EntityComponentMappers.size.get(entity);
+        SizeComponent size = ViewComponentMapper.SIZE.get(entity);
 
         float followX = position.x;
         float followY = position.y;

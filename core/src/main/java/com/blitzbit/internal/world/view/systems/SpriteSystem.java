@@ -9,12 +9,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
-import com.blitzbit.internal.world.ecs.components.EntityComponentMappers;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.components.ColorComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
 import com.blitzbit.internal.world.view.components.SpriteComponent;
+import com.blitzbit.internal.world.view.components.ViewComponentMapper;
 
 import java.util.Comparator;
 
@@ -42,9 +42,9 @@ public class SpriteSystem extends SortedIteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
-        SpriteComponent sprite = EntityComponentMappers.sprite.get(entity);
-        ColorComponent color = EntityComponentMappers.getColorComponentOrDefault(entity);
-        SizeComponent size = EntityComponentMappers.getSizeComponentOrDefault(entity);
+        SpriteComponent sprite = ViewComponentMapper.SPRITE.get(entity);
+        ColorComponent color = ViewComponentMapper.getColorComponentOrDefault(entity);
+        SizeComponent size = ViewComponentMapper.getSizeComponentOrDefault(entity);
 
         Texture texture = world.getAssetManager().getTexture(sprite.textureFilename);
 
