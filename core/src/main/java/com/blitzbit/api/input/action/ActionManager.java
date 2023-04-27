@@ -8,14 +8,18 @@ import java.util.HashMap;
 public abstract class ActionManager extends InputAdapter {
 
     private final ArrayList<ActionListener> actionListeners;
-    private final HashMap<Integer, ActionType> keyboardActionTypes;
 
+    private final HashMap<Integer, ActionType> keyboardActionTypes;
     private final HashMap<Integer, ActionType> mouseActionTypes;
+    private final ArrayList<ActionType> scrollInActionTypes;
+    private final ArrayList<ActionType> scrollOutActionTypes;
 
     public ActionManager() {
         actionListeners = new ArrayList<>();
         keyboardActionTypes = new HashMap<>();
         mouseActionTypes = new HashMap<>();
+        scrollInActionTypes = new ArrayList<>();
+        scrollOutActionTypes = new ArrayList<>();
 
         registerKeyboardActions();
         registerMouseActions();
@@ -31,6 +35,14 @@ public abstract class ActionManager extends InputAdapter {
 
     public void addMouseAction(int pointer, ActionType actionType) {
         mouseActionTypes.put(pointer, actionType);
+    }
+
+    public void addScrollInAction(ActionType actionType) {
+        scrollInActionTypes.add(actionType);
+    }
+
+    public void addScrollOutAction(ActionType actionType) {
+        scrollOutActionTypes.add(actionType);
     }
 
     /**
@@ -80,6 +92,21 @@ public abstract class ActionManager extends InputAdapter {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean scrolled(float amountX, float amountY) {
+        if (amountY < 0) {
+            for (ActionType actionType : scrollInActionTypes) {
+                notifyListenersToEnter(actionType);
+            }
+        } else {
+            for (ActionType actionType : scrollOutActionTypes) {
+                notifyListenersToEnter(actionType);
+            }
+        }
+
+        return true;
     }
 
     private boolean notifyListenersToEnter(ActionType actionType) {
