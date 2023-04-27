@@ -4,7 +4,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public abstract class Camera extends OrthographicCamera {
 
-    public Camera(float screenWidth, float screenHeight, float viewportWidth, float viewportHeight) {
+    protected final float maxZoom;
+    protected final float minZoom;
+
+    public Camera(float screenWidth, float screenHeight, float viewportWidth, float viewportHeight, float minZoom, float maxZoom) {
         super();
 
         float aspectRatio = screenHeight / screenWidth;
@@ -13,6 +16,29 @@ public abstract class Camera extends OrthographicCamera {
         this.viewportHeight = viewportWidth * aspectRatio;
 
         follow(viewportWidth / 2.0f, viewportHeight / 2.0f);
+
+        this.minZoom = minZoom;
+        this.maxZoom = maxZoom;
+    }
+
+    public void zoomIn(float units) {
+        zoom -= units * 0.25;
+
+        if (zoom <= minZoom) {
+            zoom = minZoom;
+        }
+    }
+
+    public void zoomOut(float units) {
+        zoom += units * 0.25;
+
+        if (zoom > maxZoom) {
+            zoom = maxZoom;
+        }
+    }
+
+    public void resetZoom() {
+        zoom = 1.0f;
     }
 
     public void follow(float x, float y) {
