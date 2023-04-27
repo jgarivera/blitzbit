@@ -11,7 +11,10 @@ public enum GameActionType implements ActionType {
     MOVE_RIGHT(new MoveRight()),
     SPAWN_MINION(new SpawnMinion()),
     STOP_FOLLOW_CAMERA(null),
-    TOGGLE_DEBUG_MODE(new ToggleDebugMode());
+    TOGGLE_DEBUG_MODE(new ToggleDebugMode()),
+    ZOOM_IN(new CameraZoomIn()),
+    ZOOM_OUT(new CameraZoomOut()),
+    ZOOM_RESET(new CameraZoomReset());
 
     private final Action action;
 

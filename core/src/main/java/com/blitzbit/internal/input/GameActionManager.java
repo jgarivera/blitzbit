@@ -12,6 +12,9 @@ public class GameActionManager extends ActionManager {
         addKeyboardAction(Input.Keys.A, GameActionType.MOVE_LEFT);
         addKeyboardAction(Input.Keys.D, GameActionType.MOVE_RIGHT);
         addKeyboardAction(Input.Keys.O, GameActionType.TOGGLE_DEBUG_MODE);
+        addScrollInAction(GameActionType.ZOOM_IN);
+        addScrollOutAction(GameActionType.ZOOM_OUT);
+        addMouseAction(Input.Buttons.MIDDLE, GameActionType.ZOOM_RESET);
     }
 
     @Override
