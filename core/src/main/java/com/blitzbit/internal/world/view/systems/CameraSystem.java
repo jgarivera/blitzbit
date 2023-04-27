@@ -33,7 +33,7 @@ public class CameraSystem extends IteratingSystem {
 
         float followX = position.x;
         float followY = position.y;
-        float interpolation = 0.2f;
+        float interpolation = 0.2f * camera.zoom;
 
         camera.followLerp(followX, followY, interpolation);
     }
