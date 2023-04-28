@@ -13,7 +13,7 @@ public abstract class Camera extends OrthographicCamera {
         float aspectRatio = screenHeight / screenWidth;
 
         this.viewportWidth = viewportWidth;
-        this.viewportHeight = viewportWidth * aspectRatio;
+        this.viewportHeight = viewportHeight * aspectRatio;
 
         follow(viewportWidth / 2.0f, viewportHeight / 2.0f);
 
@@ -54,6 +54,8 @@ public abstract class Camera extends OrthographicCamera {
     }
 
     public void resize(int width, int height) {
+        viewportWidth = width;
+        viewportHeight = height;
         follow(width / 2.0f, height / 2.0f);
     }
 }
