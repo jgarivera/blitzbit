@@ -20,4 +20,8 @@ public class GameOverlay {
         font.draw(batch, String.format("FPS: %d", fps), 15, Gdx.graphics.getHeight() - 15);
         batch.end();
     }
+
+    public void resize(int width, int height) {
+        batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
+    }
 }

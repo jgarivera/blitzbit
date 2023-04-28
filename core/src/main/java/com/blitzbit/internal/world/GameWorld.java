@@ -78,6 +78,7 @@ public class GameWorld extends World {
 
     public void resize(int width, int height) {
         camera.resize(width, height);
+        overlay.resize(width, height);
     }
 
     public void dispose() {
