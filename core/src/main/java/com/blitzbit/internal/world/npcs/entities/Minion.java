@@ -2,6 +2,7 @@ package com.blitzbit.internal.world.npcs.entities;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.components.VelocityComponent;
@@ -17,6 +18,6 @@ public class Minion extends Entity {
         add(new SpriteComponent("minion.png", -1));
         add(new ColorComponent(Color.FIREBRICK));
         add(new SizeComponent(32.0f, 32.0f));
-        add(new PhysicsBodyComponent());
+        add(new PhysicsBodyComponent(BodyDef.BodyType.DynamicBody));
     }
 }

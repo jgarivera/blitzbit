@@ -1,6 +1,7 @@
 package com.blitzbit.internal.world.structures.entities;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.components.VelocityComponent;
@@ -14,6 +15,6 @@ public class Flag extends Entity {
         add(new VelocityComponent());
         add(new SpriteComponent("flag.png", 1));
         add(new SizeComponent(48.0f, 48.0f));
-        add(new PhysicsBodyComponent());
+        add(new PhysicsBodyComponent(BodyDef.BodyType.StaticBody));
     }
 }

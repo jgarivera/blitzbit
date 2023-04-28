@@ -2,6 +2,7 @@ package com.blitzbit.internal.world.player.entities;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.blitzbit.internal.world.physics.components.PhysicsBodyComponent;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.components.SpeedComponent;
@@ -23,6 +24,6 @@ public class Player extends Entity {
         add(new SpriteComponent("player.png"));
         add(new ColorComponent(Color.GOLDENROD));
         add(new CameraFollowComponent(true));
-        add(new PhysicsBodyComponent());
+        add(new PhysicsBodyComponent(BodyDef.BodyType.DynamicBody));
     }
 }
