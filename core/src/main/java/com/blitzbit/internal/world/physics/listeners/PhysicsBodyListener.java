@@ -25,11 +25,11 @@ public class PhysicsBodyListener implements EntityListener {
     @Override
     public void entityAdded(Entity entity) {
         PositionComponent position = PhysicsComponentMapper.POSITION.get(entity);
-        PhysicsBodyComponent physics = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
+        PhysicsBodyComponent physicsBody = PhysicsComponentMapper.PHYSICS_BODY.get(entity);
         SizeComponent size = ViewComponentMapper.getSizeComponentOrDefault(entity);
 
         BodyDef bodyDef = new BodyDef();
-        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.type = physicsBody.bodyType;
         bodyDef.fixedRotation = true;
         bodyDef.position.set(position.x, position.y);
 
@@ -40,7 +40,7 @@ public class PhysicsBodyListener implements EntityListener {
         body.createFixture(shape, 4.0f);
         shape.dispose();
 
-        physics.body = body;
+        physicsBody.body = body;
 
         Gdx.app.debug("Physics", "Created body for entity");
     }
