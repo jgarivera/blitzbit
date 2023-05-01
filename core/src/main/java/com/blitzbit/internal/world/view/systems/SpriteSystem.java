@@ -56,7 +56,7 @@ public class SpriteSystem extends SortedIteratingSystem {
         float originY = height / 2.0f;
 
         if (world.getToggleManager().getToggle(GameToggleManager.DEBUG_MODE)) {
-            font.draw(batch, String.format("x=%.2f,y=%.2f", x, y), x - originX, y - originY);
+            font.draw(batch, String.format("x=%.2fm,y=%.2fm\nw=%.2fm, h=%.2fm", x, y, width, height), x - originX, y - originY);
         }
 
         batch.draw(texture, x - originX, y - originY, width, height);
