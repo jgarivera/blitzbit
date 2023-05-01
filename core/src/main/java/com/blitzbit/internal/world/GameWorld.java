@@ -42,9 +42,9 @@ public class GameWorld extends World {
         setupActionManager();
 
         addEntity(new Player(0, 0));
-        addEntity(new Minion(100, 100));
-        addEntity(new Minion(200, 50));
-        addEntity(new Flag(175, 175));
+        addEntity(new Minion(5, 5));
+        addEntity(new Minion(10, 10));
+        addEntity(new Flag(11, 7));
     }
 
     private void setupEngine() {
