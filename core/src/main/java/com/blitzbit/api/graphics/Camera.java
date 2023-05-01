@@ -53,9 +53,8 @@ public abstract class Camera extends OrthographicCamera {
         follow(cameraX + (followX - cameraX) * interpolation, cameraY + (followY - cameraY) * interpolation);
     }
 
-    public void resize(int width, int height) {
-        viewportWidth = width;
-        viewportHeight = height;
+    public void resize(int width, int height, float widthMeters) {
+        viewportHeight = (widthMeters / width) * height;
         follow(width / 2.0f, height / 2.0f);
     }
 }
