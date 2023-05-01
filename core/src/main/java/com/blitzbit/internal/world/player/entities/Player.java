@@ -18,9 +18,9 @@ public class Player extends Entity {
     public Player(float spawnX, float spawnY) {
         add(new PositionComponent(spawnX, spawnY));
         add(new VelocityComponent());
-        add(new SpeedComponent(200.0f));
+        add(new SpeedComponent(5.0f));
         add(new InputComponent());
-        add(new SizeComponent(32.0f, 32.0f));
+        add(new SizeComponent(1.0f, 1.0f));
         add(new SpriteComponent("player.png"));
         add(new ColorComponent(Color.GOLDENROD));
         add(new CameraFollowComponent(true));

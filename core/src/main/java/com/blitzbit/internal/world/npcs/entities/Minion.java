@@ -17,7 +17,7 @@ public class Minion extends Entity {
         add(new VelocityComponent());
         add(new SpriteComponent("minion.png", -1));
         add(new ColorComponent(Color.FIREBRICK));
-        add(new SizeComponent(32.0f, 32.0f));
+        add(new SizeComponent(1.0f, 1.0f));
         add(new PhysicsBodyComponent(BodyDef.BodyType.DynamicBody));
     }
 }
