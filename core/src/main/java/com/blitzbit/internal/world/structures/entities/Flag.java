@@ -14,7 +14,7 @@ public class Flag extends Entity {
         add(new PositionComponent(spawnX, spawnY));
         add(new VelocityComponent());
         add(new SpriteComponent("flag.png", 1));
-        add(new SizeComponent(3.0f, 5.0f));
+        add(new SizeComponent(3.0f, 3.0f));
         add(new PhysicsBodyComponent(BodyDef.BodyType.StaticBody));
     }
 }
