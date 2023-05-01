@@ -29,7 +29,8 @@ public class SpriteSystem extends SortedIteratingSystem {
         this.world = world;
         this.batch = batch;
         font = new BitmapFont();
-        font.getData().setScale(0.5f);
+        font.setUseIntegerPositions(false);
+        font.getData().setScale(0.01f);
     }
 
     @Override
