@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Physics {
+public abstract class Physics {
     private final World worldSimulation;
     private final Box2DDebugRenderer debugRenderer;
 
