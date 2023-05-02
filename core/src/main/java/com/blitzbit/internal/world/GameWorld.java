@@ -36,7 +36,7 @@ public class GameWorld extends World {
         super(new Engine(), new GamePhysics(), new GameCamera(), new GameToggleManager(), assetManager);
 
         batch = new SpriteBatch();
-        overlay = new GameOverlay();
+        overlay = new GameOverlay(this);
 
         setupEngine();
         setupActionManager();
