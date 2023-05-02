@@ -39,6 +39,11 @@ public abstract class World {
         engine.addSystem(system);
     }
 
+    public void addSystem(EntitySystem system, int priority) {
+        system.priority = priority;
+        engine.addSystem(system);
+    }
+
     public ImmutableArray<Entity> getEntitiesFor(Family family) {
         return engine.getEntitiesFor(family);
     }
