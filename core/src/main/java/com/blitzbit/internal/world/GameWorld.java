@@ -49,8 +49,8 @@ public class GameWorld extends World {
 
     private void setupEngine() {
         addSystem(new SpriteSystem(this, batch));
-        addSystem(new CameraSystem(this));
         addSystem(new MovementSystem());
+        addSystem(new CameraSystem(this));
 
         Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
         addEntityListenerFor(family, new PhysicsBodyListener(physics));
