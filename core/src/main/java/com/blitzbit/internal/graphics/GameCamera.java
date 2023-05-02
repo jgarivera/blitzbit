@@ -18,7 +18,7 @@ public class GameCamera extends Camera {
     private static final float SCREEN_HEIGHT = Gdx.graphics.getHeight();
 
     public GameCamera() {
-        super(SCREEN_WIDTH, SCREEN_HEIGHT, VIEWPORT_WIDTH, VIEWPORT_HEIGHT, MIN_ZOOM, MAX_ZOOM);
+        super(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, MIN_ZOOM, MAX_ZOOM);
         Gdx.app.debug("GameCamera", String.format("Created game camera with a viewport size: %.2fm by %.2fm", VIEWPORT_WIDTH, VIEWPORT_HEIGHT));
     }
 }

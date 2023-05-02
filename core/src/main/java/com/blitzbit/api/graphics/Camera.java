@@ -7,15 +7,8 @@ public abstract class Camera extends OrthographicCamera {
     protected final float maxZoom;
     protected final float minZoom;
 
-    public Camera(float screenWidth, float screenHeight, float viewportWidth, float viewportHeight, float minZoom, float maxZoom) {
-        super();
-
-        float aspectRatio = screenHeight / screenWidth;
-
-        this.viewportWidth = viewportWidth;
-        this.viewportHeight = viewportHeight * aspectRatio;
-
-        follow(viewportWidth / 2.0f, viewportHeight / 2.0f);
+    public Camera(float viewportWidth, float viewportHeight, float minZoom, float maxZoom) {
+        super(viewportWidth, viewportHeight);
 
         this.minZoom = minZoom;
         this.maxZoom = maxZoom;
@@ -53,8 +46,11 @@ public abstract class Camera extends OrthographicCamera {
         follow(cameraX + (followX - cameraX) * interpolation, cameraY + (followY - cameraY) * interpolation);
     }
 
-    public void resize(int width, int height, float widthMeters) {
-        viewportHeight = (widthMeters / width) * height;
-        follow(width / 2.0f, height / 2.0f);
+    public void resize(int screenWidth, int screenHeight, float viewportWidthMeters, float viewportHeightMeters) {
+        float viewportWidthRatio = viewportWidthMeters / screenWidth;
+        float viewportHeightRatio = viewportHeightMeters / screenHeight;
+
+        viewportHeight = viewportWidthRatio * screenHeight;
+        follow(viewportWidthRatio / 2.0f, viewportHeightRatio / 2.0f);
     }
 }
