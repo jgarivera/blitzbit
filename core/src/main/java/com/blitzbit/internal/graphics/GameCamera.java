@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.blitzbit.api.graphics.Camera;
 
 public class GameCamera extends Camera {
-    public static final float MIN_ZOOM = 0.5f;
+    public static final float MIN_ZOOM = 1.0f;
     public static final float MAX_ZOOM = 2.5f;
     /**
      * The viewport width in meters.
