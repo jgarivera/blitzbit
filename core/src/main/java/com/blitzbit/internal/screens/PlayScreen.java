@@ -23,8 +23,9 @@ public class PlayScreen extends GameScreen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 1);
-        world.update(delta);
         world.render(delta);
+        world.update(delta);
+        world.renderOverlay(delta);
     }
 
     @Override

@@ -73,6 +73,9 @@ public class GameWorld extends World {
         }
 
         batch.setProjectionMatrix(camera.combined);
+    }
+
+    public void renderOverlay(float delta) {
         overlay.render(delta);
     }
 
