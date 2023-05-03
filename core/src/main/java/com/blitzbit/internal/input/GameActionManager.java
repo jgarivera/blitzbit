@@ -6,7 +6,7 @@ import com.blitzbit.api.input.action.ActionManager;
 public class GameActionManager extends ActionManager {
 
     @Override
-    protected void registerKeyboardActions() {
+    protected void registerActions() {
         addKeyboardAction(Input.Keys.W, GameActionType.MOVE_UP);
         addKeyboardAction(Input.Keys.S, GameActionType.MOVE_DOWN);
         addKeyboardAction(Input.Keys.A, GameActionType.MOVE_LEFT);
@@ -15,10 +15,6 @@ public class GameActionManager extends ActionManager {
         addScrollInAction(GameActionType.ZOOM_IN);
         addScrollOutAction(GameActionType.ZOOM_OUT);
         addMouseAction(Input.Buttons.MIDDLE, GameActionType.ZOOM_RESET);
-    }
-
-    @Override
-    protected void registerMouseActions() {
         addMouseAction(Input.Buttons.LEFT, GameActionType.SPAWN_MINION);
     }
 }

@@ -21,13 +21,10 @@ public abstract class ActionManager extends InputAdapter {
         scrollInActionTypes = new ArrayList<>();
         scrollOutActionTypes = new ArrayList<>();
 
-        registerKeyboardActions();
-        registerMouseActions();
+        registerActions();
     }
 
-    protected abstract void registerKeyboardActions();
-
-    protected abstract void registerMouseActions();
+    protected abstract void registerActions();
 
     public void addKeyboardAction(int keycode, ActionType actionType) {
         keyboardActionTypes.put(keycode, actionType);
