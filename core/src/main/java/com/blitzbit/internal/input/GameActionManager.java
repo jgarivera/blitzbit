@@ -15,6 +15,6 @@ public class GameActionManager extends ActionManager {
         addScrollInAction(GameActionType.ZOOM_IN);
         addScrollOutAction(GameActionType.ZOOM_OUT);
         addMouseAction(Input.Buttons.MIDDLE, GameActionType.ZOOM_RESET);
-        addMouseAction(Input.Buttons.LEFT, GameActionType.SPAWN_MINION);
+        addKeyboardAction(Input.Keys.O, GameActionType.SPAWN_MINION);
     }
 }
