@@ -22,6 +22,7 @@ import com.blitzbit.internal.world.player.entities.Player;
 import com.blitzbit.internal.world.player.listeners.PlayerActionListener;
 import com.blitzbit.internal.world.structures.entities.Flag;
 import com.blitzbit.internal.world.view.systems.CameraSystem;
+import com.blitzbit.internal.world.view.systems.SpriteOverlaySystem;
 import com.blitzbit.internal.world.view.systems.SpriteSystem;
 
 public class GameWorld extends World {
@@ -49,6 +50,7 @@ public class GameWorld extends World {
 
     private void setupEngine() {
         addSystem(new SpriteSystem(this, batch));
+        addSystem(new SpriteOverlaySystem(this, batch));
         addSystem(new MovementSystem());
         addSystem(new CameraSystem(this));
 
@@ -65,6 +67,13 @@ public class GameWorld extends World {
 
     public void show() {
 
+    }
+
+    @Override
+    public void update(float delta) {
+        batch.begin();
+        super.update(delta);
+        batch.end();
     }
 
     public void render(float delta) {
