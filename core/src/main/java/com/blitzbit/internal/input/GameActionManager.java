@@ -17,7 +17,7 @@ public class GameActionManager extends ActionManager {
         addKeyboardAction(Input.Keys.A, GameActionType.MOVE_LEFT);
         addKeyboardAction(Input.Keys.D, GameActionType.MOVE_RIGHT);
         addKeyboardAction(Input.Keys.O, GameActionType.TOGGLE_DEBUG_MODE);
-        addKeyboardAction(Input.Keys.O, GameActionType.SPAWN_MINION);
+        addKeyboardAction(Input.Keys.P, GameActionType.SPAWN_MINION);
     }
 
     private void registerMouseActions() {
