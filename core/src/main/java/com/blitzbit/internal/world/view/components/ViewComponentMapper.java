@@ -9,6 +9,7 @@ public class ViewComponentMapper extends EntityComponentMapper {
 
     public static final ComponentMapper<SizeComponent> SIZE = getFor(SizeComponent.class);
     public static final ComponentMapper<SpriteComponent> SPRITE = getFor(SpriteComponent.class);
+    public static final ComponentMapper<AnimatedSpriteComponent> ANIMATED_SPRITE = getFor(AnimatedSpriteComponent.class);
     public static final ComponentMapper<ColorComponent> COLOR = getFor(ColorComponent.class);
     public static final ComponentMapper<CameraFollowComponent> CAMERA_FOLLOW = getFor(CameraFollowComponent.class);
 
