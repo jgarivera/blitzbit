@@ -1,5 +1,5 @@
 buildscript {
-    
+
 
     repositories {
         mavenLocal()
@@ -9,7 +9,7 @@ buildscript {
         google()
     }
     dependencies {
-        
+
 
     }
 }
@@ -58,6 +58,7 @@ project(":core") {
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
+        api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
 //        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
 //        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     }
