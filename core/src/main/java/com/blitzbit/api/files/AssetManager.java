@@ -14,6 +14,10 @@ public abstract class AssetManager extends com.badlogic.gdx.assets.AssetManager 
         load(filename, Texture.class);
     }
 
+    protected void loadTextureAtlas(String filename) {
+        load(filename, TextureAtlas.class);
+    }
+
     public Texture getTexture(String filename) {
         return get(filename, Texture.class);
     }
