@@ -21,7 +21,10 @@ import com.blitzbit.internal.world.player.components.InputComponent;
 import com.blitzbit.internal.world.player.entities.Player;
 import com.blitzbit.internal.world.player.listeners.PlayerActionListener;
 import com.blitzbit.internal.world.structures.entities.Flag;
+import com.blitzbit.internal.world.view.components.AnimatedSpriteComponent;
+import com.blitzbit.internal.world.view.listeners.AnimatedSpriteListener;
 import com.blitzbit.internal.world.view.systems.CameraSystem;
+import com.blitzbit.internal.world.view.systems.SpriteAnimationSystem;
 import com.blitzbit.internal.world.view.systems.SpriteOverlaySystem;
 import com.blitzbit.internal.world.view.systems.SpriteSystem;
 
@@ -50,12 +53,14 @@ public class GameWorld extends World {
 
     private void setupEngine() {
         addSystem(new SpriteSystem(this, batch));
+        addSystem(new SpriteAnimationSystem(assetManager, batch));
         addSystem(new SpriteOverlaySystem(this, batch));
         addSystem(new MovementSystem());
         addSystem(new CameraSystem(this));
 
         Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
         addEntityListenerFor(family, new PhysicsBodyListener(physics));
+        addEntityListenerFor(Family.all(AnimatedSpriteComponent.class).get(), new AnimatedSpriteListener(assetManager));
     }
 
     private void setupActionManager() {
