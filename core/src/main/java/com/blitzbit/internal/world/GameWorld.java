@@ -58,8 +58,8 @@ public class GameWorld extends World {
         addSystem(new MovementSystem());
         addSystem(new CameraSystem(this));
 
-        Family family = Family.all(PositionComponent.class, PhysicsBodyComponent.class).get();
-        addEntityListenerFor(family, new PhysicsBodyListener(physics));
+        addEntityListenerFor(Family.all(PositionComponent.class, PhysicsBodyComponent.class).get(),
+                new PhysicsBodyListener(physics));
         addEntityListenerFor(Family.all(AnimatedSpriteComponent.class).get(), new AnimatedSpriteListener(assetManager));
     }
 
