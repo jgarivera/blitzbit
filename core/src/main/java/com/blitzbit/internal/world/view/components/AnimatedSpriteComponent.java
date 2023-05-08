@@ -12,15 +12,9 @@ public class AnimatedSpriteComponent implements Component {
 
     public Animation<TextureRegion> animation;
     public float stateTime = 0;
-    public int zIndex = 0;
 
     public AnimatedSpriteComponent(String regionName, float frameDuration) {
         this.regionName = regionName;
         this.frameDuration = frameDuration;
-    }
-
-    public AnimatedSpriteComponent(String regionName, float frameDuration, int zIndex) {
-        this(regionName, frameDuration);
-        this.zIndex = zIndex;
     }
 }

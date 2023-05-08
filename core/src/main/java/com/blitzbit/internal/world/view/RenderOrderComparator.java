@@ -5,10 +5,10 @@ import com.blitzbit.internal.world.view.components.ViewComponentMapper;
 
 import java.util.Comparator;
 
-public class AnimatedSpriteComparator implements Comparator<Entity> {
+public class RenderOrderComparator implements Comparator<Entity> {
 
     @Override
     public int compare(Entity e1, Entity e2) {
-        return ViewComponentMapper.ANIMATED_SPRITE.get(e1).zIndex - ViewComponentMapper.ANIMATED_SPRITE.get(e2).zIndex;
+        return ViewComponentMapper.RENDER_ORDER.get(e1).zIndex - ViewComponentMapper.RENDER_ORDER.get(e2).zIndex;
     }
 }
