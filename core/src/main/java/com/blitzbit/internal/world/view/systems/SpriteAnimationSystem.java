@@ -5,7 +5,6 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.blitzbit.api.files.AssetManager;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.view.RenderOrderComparator;
@@ -15,12 +14,10 @@ import com.blitzbit.internal.world.view.components.ViewComponentMapper;
 
 public class SpriteAnimationSystem extends SortedIteratingSystem {
 
-    private final AssetManager assetManager;
     private final SpriteBatch batch;
 
-    public SpriteAnimationSystem(AssetManager assetManager, SpriteBatch batch) {
+    public SpriteAnimationSystem(SpriteBatch batch) {
         super(Family.all(AnimatedSpriteComponent.class, PositionComponent.class).get(), new RenderOrderComparator());
-        this.assetManager = assetManager;
         this.batch = batch;
     }
 
