@@ -8,10 +8,7 @@ import com.blitzbit.internal.world.physics.components.PositionComponent;
 import com.blitzbit.internal.world.physics.components.SpeedComponent;
 import com.blitzbit.internal.world.physics.components.VelocityComponent;
 import com.blitzbit.internal.world.player.components.InputComponent;
-import com.blitzbit.internal.world.view.components.AnimatedSpriteComponent;
-import com.blitzbit.internal.world.view.components.CameraFollowComponent;
-import com.blitzbit.internal.world.view.components.ColorComponent;
-import com.blitzbit.internal.world.view.components.SizeComponent;
+import com.blitzbit.internal.world.view.components.*;
 
 public class Player extends Entity {
 
@@ -22,6 +19,7 @@ public class Player extends Entity {
         add(new InputComponent());
         add(new SizeComponent(1.0f, 1.0f));
         add(new AnimatedSpriteComponent("player_blink", 1 / 2f));
+        add(new RenderOrderComponent(0));
         add(new ColorComponent(Color.GOLDENROD));
         add(new CameraFollowComponent(true));
         add(new PhysicsBodyComponent(BodyDef.BodyType.DynamicBody));
