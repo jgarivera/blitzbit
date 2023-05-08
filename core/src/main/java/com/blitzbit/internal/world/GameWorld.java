@@ -52,7 +52,7 @@ public class GameWorld extends World {
     }
 
     private void setupEngine() {
-        addSystem(new SpriteSystem(this, batch));
+        addSystem(new SpriteSystem(assetManager, batch));
         addSystem(new SpriteAnimationSystem(batch));
         addSystem(new SpriteOverlaySystem(this, batch));
         addSystem(new MovementSystem());
