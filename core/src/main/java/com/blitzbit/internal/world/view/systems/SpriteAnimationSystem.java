@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.blitzbit.api.files.AssetManager;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
-import com.blitzbit.internal.world.view.AnimatedSpriteComparator;
+import com.blitzbit.internal.world.view.RenderOrderComparator;
 import com.blitzbit.internal.world.view.components.AnimatedSpriteComponent;
 import com.blitzbit.internal.world.view.components.SizeComponent;
 import com.blitzbit.internal.world.view.components.ViewComponentMapper;
@@ -19,7 +19,7 @@ public class SpriteAnimationSystem extends SortedIteratingSystem {
     private final SpriteBatch batch;
 
     public SpriteAnimationSystem(AssetManager assetManager, SpriteBatch batch) {
-        super(Family.all(AnimatedSpriteComponent.class, PositionComponent.class).get(), new AnimatedSpriteComparator());
+        super(Family.all(AnimatedSpriteComponent.class, PositionComponent.class).get(), new RenderOrderComparator());
         this.assetManager = assetManager;
         this.batch = batch;
     }

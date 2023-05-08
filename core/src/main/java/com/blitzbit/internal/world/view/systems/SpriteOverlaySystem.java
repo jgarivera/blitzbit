@@ -9,10 +9,8 @@ import com.blitzbit.internal.input.GameToggleManager;
 import com.blitzbit.internal.world.GameWorld;
 import com.blitzbit.internal.world.physics.components.PhysicsComponentMapper;
 import com.blitzbit.internal.world.physics.components.PositionComponent;
-import com.blitzbit.internal.world.view.SpriteComparator;
-import com.blitzbit.internal.world.view.components.SizeComponent;
-import com.blitzbit.internal.world.view.components.SpriteComponent;
-import com.blitzbit.internal.world.view.components.ViewComponentMapper;
+import com.blitzbit.internal.world.view.RenderOrderComparator;
+import com.blitzbit.internal.world.view.components.*;
 
 public class SpriteOverlaySystem extends SortedIteratingSystem {
 
@@ -21,7 +19,8 @@ public class SpriteOverlaySystem extends SortedIteratingSystem {
     private final BitmapFont font;
 
     public SpriteOverlaySystem(GameWorld world, SpriteBatch batch) {
-        super(Family.all(SpriteComponent.class, PositionComponent.class).get(), new SpriteComparator());
+        super(Family.all(PositionComponent.class, RenderOrderComponent.class)
+                .one(SpriteComponent.class, AnimatedSpriteComponent.class).get(), new RenderOrderComparator());
         this.world = world;
         this.batch = batch;
 
