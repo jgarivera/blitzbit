@@ -20,7 +20,7 @@ public class DesktopLauncher {
         settings.maxWidth = 512;
         settings.maxHeight = 512;
 
-        TexturePacker.process(settings, "../assets", "../assets", "pack");
+        TexturePacker.process(settings, "assets", "assets", "pack");
 
         new Lwjgl3Application(new BlitzbitGame(), config);
     }
