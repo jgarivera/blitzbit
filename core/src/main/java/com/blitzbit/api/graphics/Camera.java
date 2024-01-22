@@ -15,7 +15,7 @@ public abstract class Camera extends OrthographicCamera {
     }
 
     public void zoomIn(float units) {
-        zoom -= units * 0.25;
+        zoom -= units * 0.25f;
 
         if (zoom <= minZoom) {
             zoom = minZoom;
@@ -23,7 +23,7 @@ public abstract class Camera extends OrthographicCamera {
     }
 
     public void zoomOut(float units) {
-        zoom += units * 0.25;
+        zoom += units * 0.25f;
 
         if (zoom > maxZoom) {
             zoom = maxZoom;
