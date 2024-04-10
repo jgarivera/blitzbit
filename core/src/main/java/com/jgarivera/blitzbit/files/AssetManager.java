@@ -1,28 +1,19 @@
 package com.jgarivera.blitzbit.files;
 
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
-public abstract class AssetManager extends com.badlogic.gdx.assets.AssetManager {
+public class AssetManager extends com.badlogic.gdx.assets.AssetManager {
+
     public void load() {
         loadTextures();
     }
 
-    protected abstract void loadTextures();
-
-    protected void loadTexture(String filename) {
-        load(filename, Texture.class);
-    }
-
-    protected void loadTextureAtlas(String filename) {
-        load(filename, TextureAtlas.class);
-    }
-
-    public Texture getTexture(String filename) {
-        return get(filename, Texture.class);
-    }
-
-    public TextureAtlas getTextureAtlas(String filename) {
-        return get(filename, TextureAtlas.class);
+    private void loadTextures() {
+        load("pack.atlas", TextureAtlas.class);
+        load("player.png", Texture.class);
+        load("minion.png", Texture.class);
+        load("flag.png", Texture.class);
     }
 }

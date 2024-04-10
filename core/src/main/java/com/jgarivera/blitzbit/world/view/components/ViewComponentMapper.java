@@ -3,9 +3,10 @@ package com.jgarivera.blitzbit.world.view.components;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
-import com.jgarivera.blitzbit.world.ecs.EntityComponentMapper;
 
-public class ViewComponentMapper extends EntityComponentMapper {
+import static com.badlogic.ashley.core.ComponentMapper.getFor;
+
+public class ViewComponentMapper {
 
     public static final ComponentMapper<SizeComponent> SIZE = getFor(SizeComponent.class);
     public static final ComponentMapper<SpriteComponent> SPRITE = getFor(SpriteComponent.class);

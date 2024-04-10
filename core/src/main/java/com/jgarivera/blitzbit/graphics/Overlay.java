@@ -6,13 +6,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.jgarivera.blitzbit.world.World;
 
-public class GameOverlay {
+public class Overlay {
 
     private final World world;
     private final SpriteBatch batch;
     private final BitmapFont font;
 
-    public GameOverlay(World world) {
+    public Overlay(World world) {
         this.world = world;
         batch = new SpriteBatch();
         font = new BitmapFont();

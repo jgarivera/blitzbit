@@ -1,11 +1,14 @@
-package com.jgarivera.blitzbit.input.action;
+package com.jgarivera.blitzbit.input;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import com.jgarivera.blitzbit.input.action.ActionListener;
+import com.jgarivera.blitzbit.input.action.ActionType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class ActionManager extends InputAdapter {
+public class ActionManager extends InputAdapter {
 
     private final ArrayList<ActionListener> actionListeners;
 
@@ -24,22 +27,24 @@ public abstract class ActionManager extends InputAdapter {
         registerActions();
     }
 
-    protected abstract void registerActions();
-
-    public void addKeyboardAction(int keycode, ActionType actionType) {
-        keyboardActionTypes.put(keycode, actionType);
+    private void registerActions() {
+        registerKeyboardActions();
+        registerMouseActions();
     }
 
-    public void addMouseAction(int pointer, ActionType actionType) {
-        mouseActionTypes.put(pointer, actionType);
+    private void registerKeyboardActions() {
+        keyboardActionTypes.put(Input.Keys.W, ActionTypes.MOVE_UP);
+        keyboardActionTypes.put(Input.Keys.S, ActionTypes.MOVE_DOWN);
+        keyboardActionTypes.put(Input.Keys.A, ActionTypes.MOVE_LEFT);
+        keyboardActionTypes.put(Input.Keys.D, ActionTypes.MOVE_RIGHT);
+        keyboardActionTypes.put(Input.Keys.O, ActionTypes.TOGGLE_DEBUG_MODE);
+        keyboardActionTypes.put(Input.Keys.P, ActionTypes.SPAWN_MINION);
     }
 
-    public void addScrollInAction(ActionType actionType) {
-        scrollInActionTypes.add(actionType);
-    }
-
-    public void addScrollOutAction(ActionType actionType) {
-        scrollOutActionTypes.add(actionType);
+    private void registerMouseActions() {
+        mouseActionTypes.put(Input.Buttons.MIDDLE, ActionTypes.ZOOM_RESET);
+        scrollInActionTypes.add(ActionTypes.ZOOM_IN);
+        scrollOutActionTypes.add(ActionTypes.ZOOM_OUT);
     }
 
     /**

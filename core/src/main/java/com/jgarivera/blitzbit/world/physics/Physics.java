@@ -6,7 +6,11 @@ import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
-public abstract class Physics {
+public class Physics {
+
+    private static final float UNIT = 32.0f;
+    public static final float PIXELS_TO_METERS = 1 / UNIT;
+
     private final World worldSimulation;
     private final Box2DDebugRenderer debugRenderer;
 
@@ -31,5 +35,9 @@ public abstract class Physics {
 
     public World getWorldSimulation() {
         return worldSimulation;
+    }
+
+    public static float pixelsToMeters(float pixels) {
+        return pixels * PIXELS_TO_METERS;
     }
 }

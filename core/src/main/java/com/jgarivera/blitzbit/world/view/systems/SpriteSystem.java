@@ -32,7 +32,7 @@ public class SpriteSystem extends SortedIteratingSystem {
         SpriteComponent sprite = ViewComponentMapper.SPRITE.get(entity);
         SizeComponent size = ViewComponentMapper.getSizeComponentOrDefault(entity);
 
-        Texture texture = assetManager.getTexture(sprite.textureFilename);
+        Texture texture = assetManager.get(sprite.textureFilename, Texture.class);
 
         float x = position.x;
         float y = position.y;

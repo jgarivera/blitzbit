@@ -5,8 +5,8 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jgarivera.blitzbit.input.GameToggleManager;
-import com.jgarivera.blitzbit.world.GameWorld;
+import com.jgarivera.blitzbit.input.ToggleManager;
+import com.jgarivera.blitzbit.world.World;
 import com.jgarivera.blitzbit.world.physics.components.PhysicsComponentMapper;
 import com.jgarivera.blitzbit.world.physics.components.PositionComponent;
 import com.jgarivera.blitzbit.world.view.RenderOrderComparator;
@@ -18,11 +18,11 @@ import com.jgarivera.blitzbit.world.view.components.ViewComponentMapper;
 
 public class SpriteOverlaySystem extends SortedIteratingSystem {
 
-    private final GameWorld world;
+    private final World world;
     private final SpriteBatch batch;
     private final BitmapFont font;
 
-    public SpriteOverlaySystem(GameWorld world, SpriteBatch batch) {
+    public SpriteOverlaySystem(World world, SpriteBatch batch) {
         super(Family.all(PositionComponent.class, RenderOrderComponent.class)
                 .one(SpriteComponent.class, AnimatedSpriteComponent.class).get(), new RenderOrderComparator());
         this.world = world;
@@ -54,6 +54,6 @@ public class SpriteOverlaySystem extends SortedIteratingSystem {
     }
 
     private boolean isDebugMode() {
-        return world.getToggleManager().getToggle(GameToggleManager.DEBUG_MODE);
+        return world.getToggleManager().getToggle(ToggleManager.DEBUG_MODE);
     }
 }

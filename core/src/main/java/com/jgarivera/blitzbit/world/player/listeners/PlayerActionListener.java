@@ -3,13 +3,13 @@ package com.jgarivera.blitzbit.world.player.listeners;
 import com.jgarivera.blitzbit.input.action.Action;
 import com.jgarivera.blitzbit.input.action.ActionListener;
 import com.jgarivera.blitzbit.input.action.ActionType;
-import com.jgarivera.blitzbit.world.GameWorld;
+import com.jgarivera.blitzbit.world.World;
 
 public class PlayerActionListener implements ActionListener {
 
-    private final GameWorld world;
+    private final World world;
 
-    public PlayerActionListener(GameWorld world) {
+    public PlayerActionListener(World world) {
         this.world = world;
     }
 

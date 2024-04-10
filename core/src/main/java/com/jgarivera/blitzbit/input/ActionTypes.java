@@ -12,7 +12,7 @@ import com.jgarivera.blitzbit.input.actions.MoveUp;
 import com.jgarivera.blitzbit.input.actions.SpawnMinion;
 import com.jgarivera.blitzbit.input.actions.ToggleDebugMode;
 
-public enum GameActionType implements ActionType {
+public enum ActionTypes implements ActionType {
     MOVE_UP(new MoveUp()),
     MOVE_DOWN(new MoveDown()),
     MOVE_LEFT(new MoveLeft()),
@@ -26,7 +26,7 @@ public enum GameActionType implements ActionType {
 
     private final Action action;
 
-    GameActionType(Action action) {
+    ActionTypes(Action action) {
         this.action = action;
     }
 

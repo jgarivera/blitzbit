@@ -15,7 +15,7 @@ public class AnimatedSpriteListener implements EntityListener {
     private final TextureAtlas atlas;
 
     public AnimatedSpriteListener(AssetManager assetManager) {
-        atlas = assetManager.getTextureAtlas("pack.atlas");
+        atlas = assetManager.get("pack.atlas", TextureAtlas.class);
     }
 
     @Override

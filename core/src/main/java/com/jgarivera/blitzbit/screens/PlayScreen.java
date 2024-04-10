@@ -1,17 +1,21 @@
 package com.jgarivera.blitzbit.screens;
 
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.jgarivera.blitzbit.files.GameAssetManager;
-import com.jgarivera.blitzbit.world.GameWorld;
+import com.jgarivera.blitzbit.files.AssetManager;
+import com.jgarivera.blitzbit.graphics.Camera;
+import com.jgarivera.blitzbit.input.ToggleManager;
+import com.jgarivera.blitzbit.world.World;
+import com.jgarivera.blitzbit.world.physics.Physics;
 
-public class PlayScreen extends GameScreen {
+public class PlayScreen extends AbstractScreen {
 
-    private final GameWorld world;
+    private final World world;
 
-    public PlayScreen(Game game, GameAssetManager assetManager) {
+    public PlayScreen(Game game, AssetManager assetManager) {
         super(game);
-        world = new GameWorld(assetManager);
+        world = new World(new Engine(), new Physics(), new Camera(), new ToggleManager(), assetManager);
     }
 
     @Override

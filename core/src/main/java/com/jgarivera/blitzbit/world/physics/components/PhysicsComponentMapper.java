@@ -1,9 +1,10 @@
 package com.jgarivera.blitzbit.world.physics.components;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.jgarivera.blitzbit.world.ecs.EntityComponentMapper;
 
-public class PhysicsComponentMapper extends EntityComponentMapper {
+import static com.badlogic.ashley.core.ComponentMapper.getFor;
+
+public class PhysicsComponentMapper {
 
     public static final ComponentMapper<PositionComponent> POSITION = getFor(PositionComponent.class);
     public static final ComponentMapper<VelocityComponent> VELOCITY = getFor(VelocityComponent.class);
