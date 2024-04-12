@@ -1,5 +1,5 @@
 # blitzbit
-A 2D top-down libGDX game that features a game world where a player can simply move around and collide with other entities (for now?). This project is used to practice the principle of composition using the [Entity-Component-System (ECS)](https://en.wikipedia.org/wiki/Entity_component_system) pattern.
+A 2D top-down libGDX game that features a game world where a player can simply move around and collide with other entities. This project is used to practice the principle of composition using the [Entity-Component-System (ECS)](https://en.wikipedia.org/wiki/Entity_component_system) pattern.
 
 ![screen-capture](docs/screen-capture.gif)
 
